@@ -16,7 +16,6 @@ public class ColorChange : MonoBehaviour
 
     public void ChangeColor(float g)
     {
-        float value = Mathf.Lerp(0f, 1f, t);
         t += Time.deltaTime / duration;
         currentColor.g = g;
         currentColor.r = (1-g);

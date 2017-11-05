@@ -48,12 +48,12 @@ public class Enemy : MonoBehaviour {
         
         Debug.Log("Enemy " + gameObject.transform.name + " damaged for "+ tDamage + " | health : "+ currentHealth);
         
-        /*if(colorChange != null)
+        if(colorChange != null)
         {
             float greenPercentage = currentHealth / health;
             //Debug.Log(greenPercentage);
             colorChange.ChangeColor(greenPercentage);
-        }*/
+        }
         CheckDeath();
     }
 }
