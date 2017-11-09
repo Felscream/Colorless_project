@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     private float speed, jumpSpeedModifier, jumpHeight, fallMultiplier;
     private float distToGround;
     private Vector3 velocity;
-    //private Rigidbody rb;
     private CharacterController controller;
     public static PlayerMovement GetInstance()
     {
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        //rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
         distToGround = GetComponent<Collider>().bounds.extents.y;
     }
@@ -70,7 +68,6 @@ public class PlayerMovement : MonoBehaviour {
         movement.x *= speed;
 
         movement.z *= ySpeed;
-        //transform.Translate(movement);
         controller.Move(movement * Time.deltaTime);   
     }
     public void Rotate(float rotX, float rotY, Transform cam)
@@ -89,7 +86,7 @@ public class PlayerMovement : MonoBehaviour {
     //function may b
     public bool IsGrounded()
     {
-        //returns true if collides with an something underneath object
+        //returns true if collides with an obstacle underneath object
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f, LayerMask.GetMask("Obstacle"));
     }
 }
