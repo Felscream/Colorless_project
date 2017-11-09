@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TeamUtility.IO;
 
 public class PlayerMovement : MonoBehaviour {
     private static PlayerMovement instance;
     [SerializeField]
-    private float speed, jumpSpeedModifier, jumpVelocity, fallMultiplier;
+    private float speed, jumpSpeedModifier, jumpHeight, fallMultiplier;
     private float distToGround;
-    private Rigidbody rb;
-
+    private Vector3 velocity;
+    //private Rigidbody rb;
+    private CharacterController controller;
     public static PlayerMovement GetInstance()
     {
         if (instance == null)
@@ -31,19 +33,27 @@ public class PlayerMovement : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
         distToGround = GetComponent<Collider>().bounds.extents.y;
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        DynamicFall();
-    }
-    private void DynamicFall()
-    {
-        if (rb != null && rb.velocity.y < 0)
+        if (IsGrounded() && InputManager.GetButtonDown("Jump"))
         {
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            Debug.Log("Jumping");
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
         }
+        
+        if (velocity.y < 0)
+        {
+            velocity.y += Physics.gravity.y * fallMultiplier * Time.deltaTime;
+        }
+        else
+        {
+            velocity.y += Physics.gravity.y * Time.deltaTime;
+        }
+        controller.Move(velocity * Time.deltaTime);
     }
     public void Move(float moveX, float moveY)
     {
@@ -54,12 +64,14 @@ public class PlayerMovement : MonoBehaviour {
         //float xSpeed = IsGrounded() ? speed : speed * jumpSpeedModifier;
 
         //LIMIT DIAGONAL SPEED
-        Vector3 movement = Vector3.Normalize(new Vector3(moveX, 0f, moveY)) * Time.deltaTime;
+        Vector3 movement = Vector3.Normalize((new Vector3(moveX, 0f, moveY)));
+        movement = transform.TransformDirection(movement);
         //not impeding X movements when aerial
         movement.x *= speed;
 
         movement.z *= ySpeed;
-        transform.Translate(movement);
+        //transform.Translate(movement);
+        controller.Move(movement * Time.deltaTime);   
     }
     public void Rotate(float rotX, float rotY, Transform cam)
     {
@@ -68,29 +80,16 @@ public class PlayerMovement : MonoBehaviour {
             cam.Rotate(new Vector3(rotY, 0f, 0f));
             //limit camera yaw
             cam.localEulerAngles = new Vector3(Mathf.Clamp(cam.localEulerAngles.x, 0, 360), 0, 0);
-
-
         }
         if (rotX != 0)
         {
             transform.Rotate(new Vector3(0f, rotX, 0f));
         }
     }
-
-    public void Jump()
-    {
-        Debug.Log("Jumping");
-        if (rb != null && IsGrounded())
-        {
-            rb.velocity = new Vector3(rb.velocity.x, Vector3.up.y * jumpVelocity, rb.velocity.z);
-        }
-    }
-
+    //function may b
     public bool IsGrounded()
     {
         //returns true if collides with an something underneath object
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f, LayerMask.GetMask("Obstacle"));
     }
-
-
 }

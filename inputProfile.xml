@@ -271,66 +271,6 @@
       <axis>2</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
-    <AxisConfiguration name="WeaponSlot0">
-      <description />
-      <positive>Alpha1</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="WeaponSlot1">
-      <description />
-      <positive>Alpha2</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="WeaponSlot2">
-      <description />
-      <positive>Alpha3</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="WeaponSlot3">
-      <description />
-      <positive>Alpha4</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
   </InputConfiguration>
   <InputConfiguration name="Windows_Gamepad">
     <AxisConfiguration name="Horizontal">
