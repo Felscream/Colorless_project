@@ -169,12 +169,6 @@ public class PlayerInput : MonoBehaviour {
         
         }
 
-        //JUMPING
-        /*if (InputManager.GetButtonDown("Jump"))
-        {
-            mv.Jump();
-        }*/
-
         //INTERACTIONS
         if (InputManager.GetButtonDown("Submit"))
         {
