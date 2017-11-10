@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 4342784453697384}
   - component: {fileID: 114231243868589858}
   m_Layer: 0
-  m_Name: AI
+  m_Name: brawler_ai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042278757911694}
-  m_LocalRotation: {x: 0.7071077, y: 0.00028152892, z: -0.70710576, w: 0.0002815297}
+  m_LocalRotation: {x: 0.7071078, y: 0.00028152895, z: -0.7071058, w: 0.00028152973}
   m_LocalPosition: {x: -0.042526666, y: 0.0003824621, z: 0.107759714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -822,7 +822,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360212400399316}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -24.22, y: 2.34, z: 3.9}
+  m_LocalPosition: {x: -46.12, y: 2.371, z: -1.071}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4068865577932062}
@@ -851,7 +851,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980936824926284}
-  m_LocalRotation: {x: 0.7071077, y: 0.00028152892, z: 0.70710576, w: -0.0002815297}
+  m_LocalRotation: {x: 0.7071078, y: 0.00028152895, z: 0.7071058, w: -0.00028152973}
   m_LocalPosition: {x: -0.026047828, y: 0.00039617252, z: -0.1077597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1261,7 +1261,12 @@ MonoBehaviour:
     _serializedDocument: <component version="1.8" type="RAIN.Core.AIRig" reference="0"
       includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_useFixedUpdate>False</_useFixedUpdate><_ai
       reference="1"><_isActive>True</_isActive><_body sceneobject="7ba7391c-e935-434c-80ef-ba32ad466f26"></_body><_workingMemory
-      type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems></_memoryItems></_workingMemory><_mind
+      type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems><element0 reference="12"><Key>Player</Key><ValueType>UnityEngine.GameObject</ValueType><Value
+      type="UnityEngine.GameObject" sceneobject="476a9e14-a96d-45b4-84d6-07f9c3a989a9"></Value></element0><element1
+      reference="13"><Key>MaxDistance</Key><ValueType>System.Single</ValueType><Value
+      type="System.Single">3.5</Value></element1><element2 reference="15"><Key>AttackRange</Key><ValueType>System.Single</ValueType><Value
+      type="System.Single">4</Value></element2><element3 reference="16"><Key>AttackReload</Key><ValueType>System.Single</ValueType><Value
+      type="System.Single">5</Value></element3></_memoryItems></_workingMemory><_mind
       type="RAIN.Minds.BasicMind" reference="3"><_behaviorTree object="0"></_behaviorTree><_behaviorTreeBindings></_behaviorTreeBindings></_mind><_motor
       type="RAIN.Motion.BasicMotor" reference="4"><_speed>7</_speed><_rotationSpeed>360</_rotationSpeed><_closeEnoughDistance>0.1</_closeEnoughDistance><_closeEnoughAngle>0.1</_closeEnoughAngle><_faceBeforeMoveAngle>360</_faceBeforeMoveAngle><_maxHeightOffset>1</_maxHeightOffset><_allow3DMovement>False</_allow3DMovement><_allow3DRotation>False</_allow3DRotation><_allowOffGraphMovement>True</_allowOffGraphMovement><_useRootMotion>False</_useRootMotion><_overrideRootRotation>True</_overrideRootRotation><_mecanimParameters></_mecanimParameters></_motor><_animator
       type="RAIN.Animation.BasicAnimator" reference="5"><_showVisual>True</_showVisual><_leftEye
@@ -1270,11 +1275,14 @@ MonoBehaviour:
       reference="8"><_jointColor>0.6,0,0.6,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_head><_neck
       reference="9"><_jointColor>0.6,0,0.6,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_neck><_lookTime>1</_lookTime><_minimumTargetChange>0.1</_minimumTargetChange><_resetEachFrame>False</_resetEachFrame></_animator><_navigator
       type="RAIN.Navigation.BasicNavigator" reference="10"><_drawPaths>False</_drawPaths><_pathColor>0,0,0.6,1</_pathColor><_outlineColorOffset>-0.5</_outlineColorOffset><_maxPathfindingSteps>100</_maxPathfindingSteps><_maxPathLength>0</_maxPathLength><_padding>0</_padding><_graphTags></_graphTags></_navigator><_senses
-      type="RAIN.Perception.BasicSenses" reference="11"><_sensors></_sensors></_senses><_customElements></_customElements></_ai></component>
+      type="RAIN.Perception.BasicSenses" reference="11"><_sensors><element0 type="RAIN.Perception.Sensors.VisualSensor"
+      reference="14"><_showVisual>True</_showVisual><_sensorName>PlayerSensor</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.5529412,0.009411765,1</_sensorColor><_mountPoint
+      sceneobject="7ba7391c-e935-434c-80ef-ba32ad466f26" component="0"></_mountPoint><_positionOffset>1.946606E-08,3.401589,6.036359E-06</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>4.1</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>45</_horizontalAngle><_verticalAngle>131</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>7424</_lineOfSightMask></element0></_sensors></_senses><_customElements></_customElements></_ai></component>
     _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
-      type="System.Int32">2</value></element0></meta>
+      type="System.Int32">1</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+      type="System.Boolean">False</value></element1></meta>
     _serializedObjects:
-    - {fileID: 4900000, guid: b608be87ad25483428385d0997e0a345, type: 3}
+    - {fileID: 4900000, guid: 04cd8c297923c324a94604c950450325, type: 3}
     _serializedCustomData: []
 --- !u!136 &136203761682037888
 CapsuleCollider:
