@@ -1,0 +1,1 @@
+<behaviortree version="1.1" repeatuntil="" name="SimplePatrol" debugbreak="False"><sequencer usepriorities="False" repeatuntil="" name="root" debugbreak="False"><move turnspeed="" repeatuntil="" priority="" name="move" movetarget="Player" movespeed="7" facetarget="Player" debugbreak="False" closeenoughdistance="4" closeenoughangle=""></move></sequencer></behaviortree>

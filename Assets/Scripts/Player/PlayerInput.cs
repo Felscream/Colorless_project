@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour {
     [SerializeField]
     private float mouseSensibility, controllerSensibility;
     private Transform camTransform;
+    private Player player;
     private PlayerMovement mv;
     private PlayerActions pa;
     private float movementX;
@@ -40,7 +41,7 @@ public class PlayerInput : MonoBehaviour {
     private void Start()
     {
         mv = PlayerMovement.GetInstance();
-        
+        player = Player.GetInstance(); 
         pa = PlayerActions.GetInstance();
     }
 
@@ -48,13 +49,22 @@ public class PlayerInput : MonoBehaviour {
     private void Update()
     {
         
-        if (ObjectsInstantiated())
+        if (ObjectsInstantiated() && !player.IsDead())
         {
-            GetInput();
+            GetPlayerControlInput();
         }
         else
         {
-            Debug.Log("Objets non instanciés");
+            if (player.IsDead())
+            {
+                movementX = 0f;
+                movementY = 0f;
+                Debug.Log("Player is dead");
+            }
+            else
+            {
+                Debug.Log("Objets non instanciés");
+            }
         }
     }
 
@@ -81,7 +91,7 @@ public class PlayerInput : MonoBehaviour {
 
     private bool ObjectsInstantiated()
     {
-        if(mv != null && camTransform != null && pa !=null)
+        if(mv != null && camTransform != null && pa !=null && player != null)
             return true;
         return false;
     }
@@ -145,7 +155,7 @@ public class PlayerInput : MonoBehaviour {
     /**************************
     ****     GET INPUT      ***
     ***************************/
-    public void GetInput()
+    public void GetPlayerControlInput()
     {
         //WEAPON RELATED ACTIONS
         if (pa.HasWeapon())
@@ -225,6 +235,11 @@ public class PlayerInput : MonoBehaviour {
     {
         //MOVING
         mv.Move(movementX, movementY);
+
+        if (InputManager.GetButtonDown("Jump"))
+        {
+            mv.Jump();
+        }
     }
 
     public void PrintInput()
@@ -252,6 +267,16 @@ public class PlayerInput : MonoBehaviour {
         }
         return instance;
 
+    }
+
+    public float GetMovementX()
+    {
+        return movementX;
+    }
+
+    public float GetMovementY()
+    {
+        return movementY;
     }
 
 }
