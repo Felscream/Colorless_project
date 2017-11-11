@@ -16,6 +16,7 @@ public class Brawler : Enemy {
         dead = false;
         currentHealth = health;
         lastAttackTime = -attackRechargeTime;
+        InitializeAI();
     }
 
     public void Start()
@@ -45,5 +46,12 @@ public class Brawler : Enemy {
     public float GetLastAttackTime()
     {
         return lastAttackTime;
+    }
+
+    public void InitializeAI()
+    {
+        aiRig = GetComponentInChildren<RAIN.Core.AIRig>();
+        aiRig.AI.Body = this.gameObject;
+        aiRig.AI.BodyInit();
     }
 }

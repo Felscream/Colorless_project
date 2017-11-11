@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Player : Character {
     private static Player instance;
     private Text playerHealthUI;
+
     protected override IEnumerator Die()
     {
         yield return null;

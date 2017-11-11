@@ -16,8 +16,8 @@ MonoBehaviour:
   - AssetPath: .currentai
     BehaviorTreeName: (No AI Selected)
     BehaviorTreeID: 1
-    LastUpdate: 636459449169629395
-    LastModified: 636459448702822279
+    LastUpdate: 636459880059220433
+    LastModified: 636459879735451225
     Errored: 0
   - AssetPath: .createxml
     BehaviorTreeName: Create New Behavior Tree
@@ -28,8 +28,8 @@ MonoBehaviour:
   - AssetPath: Assets/AI/BehaviorTrees/brawl_ennemies.txt
     BehaviorTreeName: brawl_ennemies
     BehaviorTreeID: 1
-    LastUpdate: 636459449169629395
-    LastModified: 636459448702822279
+    LastUpdate: 636459880059220433
+    LastModified: 636459879735451225
     Errored: 0
   - AssetPath: Assets/AI/BehaviorTrees/SimplePatrol.txt
     BehaviorTreeName: SimplePatrol
@@ -83,7 +83,7 @@ MonoBehaviour:
       _type: 4
       _stateIndex: 1
       _parent: 0
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 02000000
       _variables: 
       _focused: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
       _type: 20
       _stateIndex: 2
       _parent: 1
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 0300000004000000
       _variables: 
       _focused: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
       _type: 20
       _stateIndex: 4
       _parent: 2
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 0500000006000000
       _variables: 
       _focused: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
       _type: 19
       _stateIndex: 6
       _parent: 4
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 07000000
       _variables: 
       _focused: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
       _type: 5
       _stateIndex: 7
       _parent: 6
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 08000000
       _variables: 
       _focused: 0
@@ -395,7 +395,7 @@ MonoBehaviour:
       _type: 19
       _stateIndex: 8
       _parent: 7
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 090000000b000000
       _variables: 
       _focused: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
       _type: 5
       _stateIndex: 9
       _parent: 8
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059220433
       _children: 0a000000
       _variables: 
       _focused: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
       _type: 5
       _stateIndex: 11
       _parent: 8
-      _lastUpdate: 636459449169629395
+      _lastUpdate: 636459880059225452
       _children: 0c0000000d0000000e000000
       _variables: 
       _focused: 0
@@ -695,7 +695,7 @@ MonoBehaviour:
       _type: 5
       _stateIndex: 14
       _parent: 11
-      _lastUpdate: 636459449169634405
+      _lastUpdate: 636459880059225452
       _children: 0f000000
       _variables: 
       _focused: 0

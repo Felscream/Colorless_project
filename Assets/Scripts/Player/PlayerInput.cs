@@ -57,6 +57,8 @@ public class PlayerInput : MonoBehaviour {
         {
             if (player.IsDead())
             {
+                movementX = 0f;
+                movementY = 0f;
                 Debug.Log("Player is dead");
             }
             else
@@ -233,6 +235,11 @@ public class PlayerInput : MonoBehaviour {
     {
         //MOVING
         mv.Move(movementX, movementY);
+
+        if (InputManager.GetButtonDown("Jump"))
+        {
+            mv.Jump();
+        }
     }
 
     public void PrintInput()
@@ -260,6 +267,16 @@ public class PlayerInput : MonoBehaviour {
         }
         return instance;
 
+    }
+
+    public float GetMovementX()
+    {
+        return movementX;
+    }
+
+    public float GetMovementY()
+    {
+        return movementY;
     }
 
 }
