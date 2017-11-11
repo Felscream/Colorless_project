@@ -6,7 +6,9 @@ public class Inventory : MonoBehaviour {
     private static Inventory instance;
     private const int inventoryCapacity = 4;
     private List<WeaponItemData> arsenal = new List<WeaponItemData>();
-    private WeaponItemData currentWeapon, latestWeapon;
+	private WeaponItemData currentWeapon, latestWeapon;
+    private List<ICapacityItem> capacities = new List<ICapacityItem>();
+	private ICapacityItem currentCapacity;
     private int arsenalSize;
     private int currentArsenalIndex;
     public static Inventory GetInstance()
@@ -18,7 +20,13 @@ public class Inventory : MonoBehaviour {
         }
         return instance;
     }
-    private void Awake()
+	private void Start()
+	{
+		Debug.Log("STARTING");
+		capacities.Add(new Regeneration());
+		capacities[0].DoEffect();
+	}
+	private void Awake()
     {
         if (instance == null)
         {

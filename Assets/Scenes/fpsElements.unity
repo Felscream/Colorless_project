@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4302906, g: 0.46517324, b: 0.49686933, a: 1}
+  m_IndirectSpecularColor: {r: 0.43029052, g: 0.46517342, b: 0.4968698, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -122,12 +122,12 @@ Prefab:
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 709.5
+      value: 434.5
       objectReference: {fileID: 0}
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 239
+      value: 187.5
       objectReference: {fileID: 0}
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
@@ -1993,7 +1993,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: healthScript
+      value: 
+      objectReference: {fileID: 997732205}
+    - target: {fileID: 114224996301701266, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114224996301701266, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: jumpSpeedModifier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114224996301701266, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: jumpVelocity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114224996301701266, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: fallMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0cf0da7678774ba469f972616b072b3e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &842330184
@@ -2005,7 +2031,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4350422275827072, guid: 66ffdf334f5c675478650e18ca7e65ff, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -24.22
+      value: -25.01
       objectReference: {fileID: 0}
     - target: {fileID: 4350422275827072, guid: 66ffdf334f5c675478650e18ca7e65ff, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2013,7 +2039,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4350422275827072, guid: 66ffdf334f5c675478650e18ca7e65ff, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.9
+      value: 4.64
       objectReference: {fileID: 0}
     - target: {fileID: 4350422275827072, guid: 66ffdf334f5c675478650e18ca7e65ff, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2210,6 +2236,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.0001, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!1 &997732204 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1869666447832478, guid: 0cf0da7678774ba469f972616b072b3e,
+    type: 2}
+  m_PrefabInternal: {fileID: 813603404}
+--- !u!114 &997732205 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114030709263472136, guid: 0cf0da7678774ba469f972616b072b3e,
+    type: 2}
+  m_PrefabInternal: {fileID: 813603404}
+  m_Script: {fileID: 11500000, guid: e199d14336a027242aa0d3fdd691e75c, type: 3}
+--- !u!114 &997732206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 997732204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f756a1c9080520d4182647b63c473633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthScript: {fileID: 997732205}
+  playerMovement: {fileID: 997732210}
+  V1: 0
+  V2: 0
+  S0: 0
+  E0: 0
+  F0: 0
+  G0: 0
+  M0: 0
+  M1: 0
+  B0: 0
+  B1: 0
+--- !u!114 &997732210 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114224996301701266, guid: 0cf0da7678774ba469f972616b072b3e,
+    type: 2}
+  m_PrefabInternal: {fileID: 813603404}
+  m_Script: {fileID: 11500000, guid: 8ed2e74c5f22b99438ac8767e811eeef, type: 3}
 --- !u!1001 &1062421051
 Prefab:
   m_ObjectHideFlags: 0
