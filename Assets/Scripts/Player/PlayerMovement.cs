@@ -6,7 +6,7 @@ using TeamUtility.IO;
 public class PlayerMovement : MonoBehaviour {
     private static PlayerMovement instance;
     [SerializeField]
-    private float speed, jumpSpeedModifier, jumpHeight, fallMultiplier, frameCounterX, frameCounterY, minimumY = -60f, maximumY = 60f;
+    private float stepOffset = 0.6f, speed, jumpSpeedModifier, jumpHeight, fallMultiplier, frameCounterX, frameCounterY, minimumY = -60f, maximumY = 60f;
     private float distToGround, rotationX = 0f, rotationY = 0f;
     private Quaternion xQuaternion;
     private Quaternion yQuaternion;
@@ -144,10 +144,26 @@ public class PlayerMovement : MonoBehaviour {
         yQuaternion = Quaternion.AngleAxis(rotAverageY, Vector3.left);
         transform.localRotation = originalRotation * xQuaternion;
     }
-    //function may b
+    
     public bool IsGrounded()
     {
         //returns true if collides with an obstacle underneath object
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.01f, LayerMask.GetMask("Obstacle"));
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Collider myCollider = GetComponent<Collider>();
+        foreach(ContactPoint cp in collision.contacts)
+        {
+            if (cp.thisCollider == myCollider)
+            {
+                if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
+                    rb.velocity = transform.up;
+                }
+            }
+        }
+    } 
 }
