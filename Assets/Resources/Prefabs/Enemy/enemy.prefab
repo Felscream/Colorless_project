@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 4350422275827072}
   - component: {fileID: 95584118808777056}
   - component: {fileID: 114001356692303528}
+  - component: {fileID: 135871918227841894}
   m_Layer: 11
   m_Name: enemy
   m_TagString: Enemy
@@ -710,7 +711,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042278757911694}
-  m_LocalRotation: {x: 0.7071078, y: 0.00028152895, z: -0.7071058, w: 0.00028152973}
+  m_LocalRotation: {x: 0.7071077, y: 0.00028152892, z: -0.70710576, w: 0.0002815297}
   m_LocalPosition: {x: -0.042526666, y: 0.0003824621, z: 0.107759714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -822,7 +823,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360212400399316}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -46.12, y: 2.371, z: -1.071}
+  m_LocalPosition: {x: -46.12, y: 2.31, z: -1.071}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4068865577932062}
@@ -851,7 +852,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980936824926284}
-  m_LocalRotation: {x: 0.7071078, y: 0.00028152895, z: 0.7071058, w: -0.00028152973}
+  m_LocalRotation: {x: 0.7071077, y: 0.00028152892, z: 0.70710576, w: -0.0002815297}
   m_LocalPosition: {x: -0.026047828, y: 0.00039617252, z: -0.1077597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1233,11 +1234,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360212400399316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f526ec829865a6e4cacb57bdc8283b84, type: 3}
+  m_Script: {fileID: 11500000, guid: 49227c53bb9392949bbfb6cec7eba2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
+  attackDamage: 20
   prefabName: Enemy
+  attackRechargeTime: 5
+  attackRadius: 7.5
+  attackZ: 6
+  attackY: 2
 --- !u!114 &114231243868589858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1266,7 +1272,8 @@ MonoBehaviour:
       reference="13"><Key>MaxDistance</Key><ValueType>System.Single</ValueType><Value
       type="System.Single">3.5</Value></element1><element2 reference="15"><Key>AttackRange</Key><ValueType>System.Single</ValueType><Value
       type="System.Single">4</Value></element2><element3 reference="16"><Key>AttackReload</Key><ValueType>System.Single</ValueType><Value
-      type="System.Single">5</Value></element3></_memoryItems></_workingMemory><_mind
+      type="System.Single">5</Value></element3><element4 reference="17"><Key>Attacking</Key><ValueType>System.Boolean</ValueType><Value
+      type="System.Boolean">False</Value></element4></_memoryItems></_workingMemory><_mind
       type="RAIN.Minds.BasicMind" reference="3"><_behaviorTree object="0"></_behaviorTree><_behaviorTreeBindings></_behaviorTreeBindings></_mind><_motor
       type="RAIN.Motion.BasicMotor" reference="4"><_speed>7</_speed><_rotationSpeed>360</_rotationSpeed><_closeEnoughDistance>0.1</_closeEnoughDistance><_closeEnoughAngle>0.1</_closeEnoughAngle><_faceBeforeMoveAngle>360</_faceBeforeMoveAngle><_maxHeightOffset>1</_maxHeightOffset><_allow3DMovement>False</_allow3DMovement><_allow3DRotation>False</_allow3DRotation><_allowOffGraphMovement>True</_allowOffGraphMovement><_useRootMotion>False</_useRootMotion><_overrideRootRotation>True</_overrideRootRotation><_mecanimParameters></_mecanimParameters></_motor><_animator
       type="RAIN.Animation.BasicAnimator" reference="5"><_showVisual>True</_showVisual><_leftEye
@@ -1284,6 +1291,18 @@ MonoBehaviour:
     _serializedObjects:
     - {fileID: 4900000, guid: 04cd8c297923c324a94604c950450325, type: 3}
     _serializedCustomData: []
+--- !u!135 &135871918227841894
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360212400399316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 7.5
+  m_Center: {x: 0, y: 1.9999996, z: 6}
 --- !u!136 &136203761682037888
 CapsuleCollider:
   m_ObjectHideFlags: 1

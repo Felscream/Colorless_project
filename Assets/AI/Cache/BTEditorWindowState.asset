@@ -16,8 +16,8 @@ MonoBehaviour:
   - AssetPath: .currentai
     BehaviorTreeName: (No AI Selected)
     BehaviorTreeID: 1
-    LastUpdate: 636458531088157094
-    LastModified: 636458531036835277
+    LastUpdate: 636459449169629395
+    LastModified: 636459448702822279
     Errored: 0
   - AssetPath: .createxml
     BehaviorTreeName: Create New Behavior Tree
@@ -28,8 +28,8 @@ MonoBehaviour:
   - AssetPath: Assets/AI/BehaviorTrees/brawl_ennemies.txt
     BehaviorTreeName: brawl_ennemies
     BehaviorTreeID: 1
-    LastUpdate: 636458531088157094
-    LastModified: 636458531036835277
+    LastUpdate: 636459449169629395
+    LastModified: 636459448702822279
     Errored: 0
   - AssetPath: Assets/AI/BehaviorTrees/SimplePatrol.txt
     BehaviorTreeName: SimplePatrol
@@ -83,7 +83,7 @@ MonoBehaviour:
       _type: 4
       _stateIndex: 1
       _parent: 0
-      _lastUpdate: 636458531088157094
+      _lastUpdate: 636459449169629395
       _children: 02000000
       _variables: 
       _focused: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
       _type: 20
       _stateIndex: 2
       _parent: 1
-      _lastUpdate: 636458531088157094
+      _lastUpdate: 636459449169629395
       _children: 0300000004000000
       _variables: 
       _focused: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
       _type: 20
       _stateIndex: 4
       _parent: 2
-      _lastUpdate: 636458531088162093
+      _lastUpdate: 636459449169629395
       _children: 0500000006000000
       _variables: 
       _focused: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: MoveCloserOrAttack
+        _currentValue: AttackOrEvade
         _recordChange: 1
         _changed: 0
       - _field: open
@@ -307,8 +307,96 @@ MonoBehaviour:
       _type: 19
       _stateIndex: 6
       _parent: 4
-      _lastUpdate: 636458531088162093
-      _children: 0700000009000000
+      _lastUpdate: 636459449169629395
+      _children: 07000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: AttackPlayer
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: debugbreak
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: Attacking == true
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 7
+      _parent: 6
+      _lastUpdate: 636459449169629395
+      _children: 08000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: MoveCloserOrAttack
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: debugbreak
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 19
+      _stateIndex: 8
+      _parent: 7
+      _lastUpdate: 636459449169629395
+      _children: 090000000b000000
       _variables: 
       _focused: 0
     - _fields:
@@ -349,10 +437,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 7
-      _parent: 6
-      _lastUpdate: 636458531088162093
-      _children: 08000000
+      _stateIndex: 9
+      _parent: 8
+      _lastUpdate: 636459449169629395
+      _children: 0a000000
       _variables: 
       _focused: 0
     - _fields:
@@ -389,7 +477,7 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       - _field: movespeed
-        _currentValue: 5
+        _currentValue: 7
         _recordChange: 1
         _changed: 0
       - _field: facetarget
@@ -409,8 +497,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 15
-      _stateIndex: 8
-      _parent: 7
+      _stateIndex: 10
+      _parent: 9
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -453,10 +541,54 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 9
-      _parent: 6
-      _lastUpdate: 636458531088162093
-      _children: 0a0000000b000000
+      _stateIndex: 11
+      _parent: 8
+      _lastUpdate: 636459449169629395
+      _children: 0c0000000d0000000e000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: AttackPlayer
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: debugbreak
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 20
+      _stateIndex: 12
+      _parent: 11
+      _lastUpdate: 0
+      _children: 
       _variables: 
       _focused: 0
     - _fields:
@@ -517,8 +649,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 7
-      _stateIndex: 10
-      _parent: 9
+      _stateIndex: 13
+      _parent: 11
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -557,14 +689,14 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       - _field: constraint
-        _currentValue: TargetPlayer != null
+        _currentValue: TargetPlayer != null && attacking == false
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 11
-      _parent: 9
-      _lastUpdate: 636458531088167149
-      _children: 0c000000
+      _stateIndex: 14
+      _parent: 11
+      _lastUpdate: 636459449169634405
+      _children: 0f000000
       _variables: 
       _focused: 0
     - _fields:
@@ -601,7 +733,7 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       - _field: classname
-        _currentValue: AttackPlayer
+        _currentValue: AttackPlayerBrawler
         _recordChange: 1
         _changed: 0
       - _field: parameters
@@ -613,8 +745,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 12
-      _parent: 11
+      _stateIndex: 15
+      _parent: 14
       _lastUpdate: 0
       _children: 
       _variables: 
