@@ -400,8 +400,8 @@ MonoBehaviour:
   jumpSpeedModifier: 0.6
   jumpHeight: 6.5
   fallMultiplier: 2.5
-  frameCounterX: 15
-  frameCounterY: 15
+  frameCounterX: 10
+  frameCounterY: 10
   minimumY: -60
   maximumY: 60
 --- !u!114 &114270349156608760

@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour {
         }
         rb = GetComponent<Rigidbody>();
         distToGround = GetComponent<Collider>().bounds.extents.y;
-        Debug.Log(distToGround);
     }
 
     private void Start()
