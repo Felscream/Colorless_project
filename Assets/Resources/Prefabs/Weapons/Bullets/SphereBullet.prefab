@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   gravityModifier: 0
-  speed: 400
+  speed: 200
   range: 60
   gravityDependant: 0
   prefab: SphereBullet

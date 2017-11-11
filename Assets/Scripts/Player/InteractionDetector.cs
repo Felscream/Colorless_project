@@ -11,6 +11,7 @@ public class InteractionDetector : MonoBehaviour {
     private Transform player;
     private Vector3 detectorLocation;
 
+
     private void Awake()
     {
         if (instance == null)
@@ -32,10 +33,14 @@ public class InteractionDetector : MonoBehaviour {
         return instance;
 
     }
+
+    private void Start()
+    {
+        player = GetComponent<Transform>();
+    }
     private void UpdateDetectorLocationAndScan()
     {
         //update detector location just before the player
-        player = GetComponent<Transform>();
         if(player != null)
         {
             detectorLocation = player.position + new Vector3(detectorX, detectorY, detectorZ);
@@ -70,18 +75,29 @@ public class InteractionDetector : MonoBehaviour {
         {
             return null;
         }
-        //look for closest interaction
-        foreach(Collider it in detector)
+        //check if player is looking at specific interactible
+        Vector3 dir = Camera.main.transform.forward;
+        Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+        RaycastHit hit;
+
+        if (Physics.Raycast(rayOrigin, dir, out hit, detectorRadius, LayerMask.GetMask("Interaction")))
         {
-            if(Vector3.Distance(player.position,it.gameObject.GetComponent<Transform>().position) <= closestInteractionDistance)
+            closestInteraction = hit.transform.gameObject.GetComponent<Interaction>();
+        }
+        else
+        {
+            foreach (Collider it in detector)
             {
-                closestInteractionDistance = Vector3.Distance(player.position, it.gameObject.GetComponent<Transform>().position);
-                closestInteraction = it.gameObject.GetComponent<Interaction>();
-                if(closestInteraction == null)
+                if (Vector3.Distance(player.position, it.gameObject.GetComponent<Transform>().position) <= closestInteractionDistance)
                 {
-                    Debug.Log("Interaction not found on " + it.gameObject.transform.name);
+                    closestInteractionDistance = Vector3.Distance(player.position, it.gameObject.GetComponent<Transform>().position);
+                    closestInteraction = it.gameObject.GetComponent<Interaction>();
                 }
             }
+        }
+        if (closestInteraction == null)
+        {
+            Debug.Log("Interaction not found on " + closestInteraction.gameObject.transform.name);
         }
         return closestInteraction;
     }

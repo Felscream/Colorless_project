@@ -2,31 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public abstract class Enemy : Character {
     [SerializeField]
-    private float health;
+    protected int attackDamage;
     [SerializeField]
-    private string prefabName;
-    private string prefabFolder = "Prefabs/Enemy";
-    private ColorChange colorChange;
-    private float currentHealth;
-    private void CheckDeath()
-    {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-	// Use this for initialization
-	private void Start () {
-        colorChange = GetComponent<ColorChange>();
-        currentHealth = health;
-        if (colorChange == null)
-        {
-            Debug.Log("no color change");
-        }
-
-    }
+    protected string prefabName;
+    protected string prefabFolder = "Prefabs/Enemy";
+    //private ColorChange colorChange;
 	
 	// Update is called once per frame
 	private void Update () {
@@ -38,22 +20,21 @@ public class Enemy : MonoBehaviour {
         foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
         Debug.Log(gameObject.transform.name + " killed");
     }
-
-
+   
     public void ReceiveDamage(int damage, bool critical)
     {
-        float tDamage = critical ? damage*1.5f : damage;
+        int tDamage = critical ? (int)Mathf.Ceil(damage * 1.5f) : (int)Mathf.Ceil(damage);
 
         currentHealth = currentHealth < 0 ? 0 : currentHealth - tDamage;
         
         Debug.Log("Enemy " + gameObject.transform.name + " damaged for "+ tDamage + " | health : "+ currentHealth);
         
-        if(colorChange != null)
+        /*if(colorChange != null)
         {
             float greenPercentage = currentHealth / health;
             //Debug.Log(greenPercentage);
             colorChange.ChangeColor(greenPercentage);
-        }
+        }*/
         CheckDeath();
     }
 }

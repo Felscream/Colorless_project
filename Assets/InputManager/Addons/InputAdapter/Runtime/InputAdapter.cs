@@ -594,7 +594,7 @@ namespace TeamUtility.IO
 			}
 			else
 			{
-				Cursor.visible = true;
+				Cursor.visible = false;
 				InputManager.SetInputConfiguration(_keyboardConfiguration, PlayerID.One);
 				Debug.Log("Current Input Device: KeyboardAndMouse");
 			}

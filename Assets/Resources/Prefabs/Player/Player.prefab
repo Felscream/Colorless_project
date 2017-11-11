@@ -51,6 +51,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1719664795931526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4750901828311080}
+  - component: {fileID: 114940825919490132}
+  m_Layer: 0
+  m_Name: Entity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1802340042520264
 GameObject:
   m_ObjectHideFlags: 1
@@ -74,12 +90,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4980909496538270}
-  - component: {fileID: 143353052071412552}
   - component: {fileID: 114995117543211742}
   - component: {fileID: 114224996301701266}
   - component: {fileID: 114133402423392066}
   - component: {fileID: 114825691313892358}
   - component: {fileID: 114270349156608760}
+  - component: {fileID: 114339580233976320}
+  - component: {fileID: 54366768210894578}
+  - component: {fileID: 136858147414584740}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -145,6 +163,19 @@ Transform:
   m_Father: {fileID: 4290618204778280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4750901828311080
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719664795931526}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5000001, y: 0.5, z: 0.5000001}
+  m_Children: []
+  m_Father: {fileID: 4980909496538270}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4921294140968220
 Transform:
   m_ObjectHideFlags: 1
@@ -165,11 +196,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1869666447832478}
   m_LocalRotation: {x: -0, y: 0.69543695, z: -0, w: -0.71858716}
-  m_LocalPosition: {x: -16.845, y: 2, z: 1.147}
+  m_LocalPosition: {x: 6.97, y: 2, z: -1.59}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4290618204778280}
   - {fileID: 4921294140968220}
+  - {fileID: 4750901828311080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 271.876, z: 0}
@@ -225,7 +257,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 2.01
+  far clip plane: 5
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -284,6 +316,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903625278831498}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54366768210894578
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869666447832478}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!81 &81248055264595010
 AudioListener:
   m_ObjectHideFlags: 1
@@ -323,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cac87b1f0646414a8f37e30d75b0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectorRadius: 3
+  detectorRadius: 5
   detectorX: 0
   detectorY: 0
   detectorZ: 1.5
@@ -349,10 +396,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed2e74c5f22b99438ac8767e811eeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepOffset: 0.6
   speed: 10
   jumpSpeedModifier: 0.6
-  jumpHeight: 3
-  fallMultiplier: 3
+  jumpHeight: 6.5
+  fallMultiplier: 2.5
+  frameCounterX: 10
+  frameCounterY: 10
+  minimumY: -60
+  maximumY: 60
 --- !u!114 &114270349156608760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,6 +416,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c953315e062d6ec4980e6982fa27d929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114339580233976320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869666447832478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68846abf4772c964ca306e7cf6bfb85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114825691313892358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,6 +440,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSwapDelay: 0.5
+--- !u!114 &114940825919490132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719664795931526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 220721487, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Entities.EntityRig" reference="0"
+      includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_entity
+      reference="1"><_entityName>Player</_entityName><_isActive>True</_isActive><_form
+      sceneobject="476a9e14-a96d-45b4-84d6-07f9c3a989a9"></_form><_aspects><element0
+      type="RAIN.Entities.Aspects.VisualAspect" reference="2"><_showVisual>True</_showVisual><_aspectName>Player</_aspectName><_isActive>True</_isActive><_aspectColor>0,0.6,0.6,1</_aspectColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_visualSize>1</_visualSize><_mountPoint
+      sceneobject="476a9e14-a96d-45b4-84d6-07f9c3a989a9" component="0"></_mountPoint><_positionOffset>0,0.36,0</_positionOffset><_angleOffset>0,0,0</_angleOffset></element0></_aspects></_entity></component>
+    _serializedMetaDocument: <meta></meta>
+    _serializedObjects: []
+    _serializedCustomData: []
 --- !u!114 &114995117543211742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,8 +508,8 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 1.5}
---- !u!143 &143353052071412552
-CharacterController:
+--- !u!136 &136858147414584740
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -424,11 +517,7 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 1
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
