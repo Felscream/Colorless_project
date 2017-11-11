@@ -160,6 +160,7 @@ public class PlayerMovement : MonoBehaviour {
             {
                 if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
                 {
+                    //step up
                     transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
                     rb.velocity = transform.up;
                 }
