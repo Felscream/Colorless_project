@@ -97,7 +97,6 @@ public abstract class HitScan : Weapon {
                 // If we did not hit anything, set the end of the line to a position directly in front of the camera at the distance of weaponRange
                 laserLine.SetPosition(1, rayOrigin + (dir * weaponRange));
             }
-            CameraRecoil();
             weaponData.DecrementClipAmmo();
             UpdateAmmoInfo();
             //Automatic reload

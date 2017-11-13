@@ -64,19 +64,7 @@ public abstract class Weapon : MonoBehaviour{
     {
         UpdateAmmoInfo();
     }
-    protected void CameraRecoil()
-    {
-        if (recoilControl)
-        {
-            recoilControl.Recoil(verticalRecoilIncrease, horizontalRecoilIncrease);
-        }
-        
-    }
-
-    protected void ResetRecoil()
-    {
-        recoilControl.Recoil(0, 0);
-    }
+    
     //abstract Fire() Method
     public abstract void Fire();
     protected bool CanFire()

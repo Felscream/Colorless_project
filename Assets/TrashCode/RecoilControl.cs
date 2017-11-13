@@ -64,4 +64,17 @@ public class RecoilControl : MonoBehaviour {
         //Debug.Log(horizontalRotation);
         
     }
+    protected void CameraRecoil()
+    {
+        if (recoilControl)
+        {
+            recoilControl.Recoil(verticalRecoilIncrease, horizontalRecoilIncrease);
+        }
+
+    }
+
+    protected void ResetRecoil()
+    {
+        recoilControl.Recoil(0, 0);
+    }
 }

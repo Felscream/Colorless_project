@@ -56,7 +56,6 @@ public class Projectile : Weapon {
                 {
                     StartCoroutine(Reload());
                 }
-                CameraRecoil();
             }
             else
             {
