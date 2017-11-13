@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     private Quaternion xQuaternion;
     private Quaternion yQuaternion;
     private Quaternion originalRotation;
-
+    private Quaternion cameraOriginalRotation;
     private List<float> rotArrayX = new List<float>();
     private List<float> rotArrayY = new List<float>();
     private Rigidbody rb;
@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.freezeRotation = true;
         }
         originalRotation = transform.localRotation;
+        cameraOriginalRotation = Camera.main.transform.localRotation;
     }
 
     private void FixedUpdate()
@@ -103,12 +104,6 @@ public class PlayerMovement : MonoBehaviour {
     }
     public void Rotate(float rotX, float rotY, Transform cam)
     {
-        
-        cam.Rotate(new Vector3(rotY, 0f, 0f));
-        //limit camera yaw
-        cam.localEulerAngles = new Vector3(Mathf.Clamp(cam.localEulerAngles.x, 0, 360), 0, 0);
-
-
         float rotAverageX = 0f;
         rotationX += rotX;
         rotArrayX.Add(rotationX);
@@ -142,7 +137,10 @@ public class PlayerMovement : MonoBehaviour {
 
         xQuaternion = Quaternion.AngleAxis(rotAverageX, Vector3.up);
         yQuaternion = Quaternion.AngleAxis(rotAverageY, Vector3.left);
+        //player body rotation
         transform.localRotation = originalRotation * xQuaternion;
+        //camera rotation
+        cam.transform.localRotation = cameraOriginalRotation * yQuaternion;
     }
     
     public bool IsGrounded()
