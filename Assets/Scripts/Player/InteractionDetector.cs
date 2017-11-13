@@ -62,7 +62,6 @@ public class InteractionDetector : MonoBehaviour {
         
         if (detector.Length > 0)
         {
-            Debug.Log(detector[0]);
             return true;
         }
             

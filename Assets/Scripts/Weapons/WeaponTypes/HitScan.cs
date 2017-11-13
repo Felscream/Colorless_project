@@ -5,11 +5,11 @@ using TeamUtility.IO;
 
 public abstract class HitScan : Weapon {
     [SerializeField]
-    protected float weaponRange, cameraRecoilDistance = 1, recoilIntensityIncrement = 0.1f;
+    protected float weaponRange;
     [SerializeField]
     protected int damage, startingBulletSpread, maxBulletSpread,
         bulletSpreadRatePerSecond, bulletSpreadRecovery;
-    protected float bulletSpread, spreading, recoilIntensity = 0;
+    protected float bulletSpread, spreading;
     protected LineRenderer laserLine;
 
     protected abstract IEnumerator ShotEffect();
@@ -23,6 +23,7 @@ public abstract class HitScan : Weapon {
         }
         bulletSpread = startingBulletSpread;
     }
+
 
     public void IncrementBulletSpread()
     {
@@ -74,10 +75,6 @@ public abstract class HitScan : Weapon {
                 y = Random.Range(-(0.1f * accuracy), 0.1f * accuracy),
                 z = 0
             };
-            
-            Debug.Log(randomOffset);
-
-
             dir += randomOffset;
             // Check if our raycast has hit anything
             if (Physics.Raycast(rayOrigin, dir, out hit, weaponRange, LayerMask.GetMask("Obstacle","Enemy","Interaction")))
@@ -100,6 +97,7 @@ public abstract class HitScan : Weapon {
                 // If we did not hit anything, set the end of the line to a position directly in front of the camera at the distance of weaponRange
                 laserLine.SetPosition(1, rayOrigin + (dir * weaponRange));
             }
+            CameraRecoil();
             weaponData.DecrementClipAmmo();
             UpdateAmmoInfo();
             //Automatic reload
@@ -110,11 +108,6 @@ public abstract class HitScan : Weapon {
         }
         else
         {
-            recoilIntensity -= 2*recoilIntensityIncrement;
-            if(recoilIntensity < 0)
-            {
-                recoilIntensity = 0;
-            }
             if (!(Time.time >= (1 / fireRate + firingStart)))
             {
                 Debug.Log("Blocked by rate of fire");
@@ -126,6 +119,7 @@ public abstract class HitScan : Weapon {
 
         }
     }
+
     public float GetSpreading()
     {
         return spreading;

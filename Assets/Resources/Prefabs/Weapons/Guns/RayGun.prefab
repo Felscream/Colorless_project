@@ -127,10 +127,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 10
   reloadTime: 1
+  verticalRecoilIncrease: 0.2
+  horizontalRecoilIncrease: 0.2
   gunPrefabFolder: Prefabs/Weapons/Guns
   prefab: RayGun
   weaponName: RAYGUN
   weaponRange: 150
+  cameraRecoilDistance: 1
+  recoilIntensityIncrement: 0.1
   damage: 7
   startingBulletSpread: 0
   maxBulletSpread: 100

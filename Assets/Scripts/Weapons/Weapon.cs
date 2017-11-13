@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour{
     [SerializeField]
-    protected float fireRate, reloadTime;
+    protected float fireRate, reloadTime, verticalRecoilIncrease, horizontalRecoilIncrease;
     [SerializeField]
     protected string gunPrefabFolder = "Prefabs/Weapons/Guns";
     [SerializeField]
     protected string prefab, weaponName;
     protected Transform bulletSpawn;
+    protected float verticalRecoil = 0.0f, horizontalRecoil = 0.0f;
 
     protected Camera cam;
+    protected RecoilControl recoilControl;
     protected Text ammoInfo;
     //weapon related timers
     protected float firingStart, reloadStart;
@@ -51,13 +53,30 @@ public abstract class Weapon : MonoBehaviour{
             Debug.Log("Weapon data found in inventory");
         }
         firingStart = -(1 / fireRate);
+        recoilControl = cam.GetComponent<RecoilControl>();
+        if (!recoilControl)
+        {
+            Debug.Log("No recoil controller found");
+        }
     }
 
     public void LateUpdate()
     {
         UpdateAmmoInfo();
     }
+    protected void CameraRecoil()
+    {
+        if (recoilControl)
+        {
+            recoilControl.Recoil(verticalRecoilIncrease, horizontalRecoilIncrease);
+        }
+        
+    }
 
+    protected void ResetRecoil()
+    {
+        recoilControl.Recoil(0, 0);
+    }
     //abstract Fire() Method
     public abstract void Fire();
     protected bool CanFire()
@@ -96,6 +115,7 @@ public abstract class Weapon : MonoBehaviour{
             }
             weaponData.SetClipAmmo(clipAmmo);
             weaponData.ChangeInventoryAmmo(-ammoSpent);
+            ResetRecoil();
             Debug.Log("Done reloading");
             UpdateAmmoInfo();
 

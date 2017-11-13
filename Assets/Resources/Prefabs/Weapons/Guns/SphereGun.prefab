@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 20
   reloadTime: 1.75
+  verticalRecoilIncrease: 5
+  horizontalRecoilIncrease: 5
   gunPrefabFolder: Prefabs/Weapons/Guns
   prefab: SphereGun
   weaponName: SPHEREGUN
