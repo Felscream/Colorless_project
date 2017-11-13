@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RAIN;
+using RAIN.Core;
 
 public class Brawler : Enemy {
     // Use this for initialization
@@ -21,7 +21,9 @@ public class Brawler : Enemy {
 
     public void Start()
     {
-        
+        transform.parent = null;
+        aiRig = GetComponentInChildren<AIRig>();
+        aiRig.AI.Body = gameObject;
     }
     public void Attack()
     {

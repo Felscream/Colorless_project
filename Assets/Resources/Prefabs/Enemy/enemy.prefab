@@ -823,7 +823,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360212400399316}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -46.12, y: 2.31, z: -1.071}
+  m_LocalPosition: {x: -46.12, y: 2.31, z: -13.58}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4068865577932062}
@@ -1286,7 +1286,7 @@ MonoBehaviour:
       reference="14"><_showVisual>True</_showVisual><_sensorName>PlayerSensor</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.5529412,0.009411765,1</_sensorColor><_mountPoint
       sceneobject="7ba7391c-e935-434c-80ef-ba32ad466f26" component="0"></_mountPoint><_positionOffset>1.946606E-08,3.401589,6.036359E-06</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>4.1</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>45</_horizontalAngle><_verticalAngle>131</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>7424</_lineOfSightMask></element0></_sensors></_senses><_customElements></_customElements></_ai></component>
     _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
-      type="System.Int32">1</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+      type="System.Int32">5</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
       type="System.Boolean">False</value></element1></meta>
     _serializedObjects:
     - {fileID: 4900000, guid: 04cd8c297923c324a94604c950450325, type: 3}
