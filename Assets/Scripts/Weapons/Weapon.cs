@@ -12,9 +12,7 @@ public abstract class Weapon : MonoBehaviour{
     protected string prefab, weaponName;
     protected Transform bulletSpawn;
     protected float verticalRecoil = 0.0f, horizontalRecoil = 0.0f;
-
     protected Camera cam;
-    protected RecoilControl recoilControl;
     protected Text ammoInfo;
     //weapon related timers
     protected float firingStart, reloadStart;
@@ -53,11 +51,6 @@ public abstract class Weapon : MonoBehaviour{
             Debug.Log("Weapon data found in inventory");
         }
         firingStart = -(1 / fireRate);
-        recoilControl = cam.GetComponent<RecoilControl>();
-        if (!recoilControl)
-        {
-            Debug.Log("No recoil controller found");
-        }
     }
 
     public void LateUpdate()
@@ -103,7 +96,6 @@ public abstract class Weapon : MonoBehaviour{
             }
             weaponData.SetClipAmmo(clipAmmo);
             weaponData.ChangeInventoryAmmo(-ammoSpent);
-            ResetRecoil();
             Debug.Log("Done reloading");
             UpdateAmmoInfo();
 
