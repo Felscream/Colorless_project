@@ -122,12 +122,12 @@ Prefab:
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 379.5
+      value: 461.5
       objectReference: {fileID: 0}
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 213.5
+      value: 259.5
       objectReference: {fileID: 0}
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
@@ -313,65 +313,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114940825919490132, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: _serializer._preferredSerialization
-      value: 1
+    - target: {fileID: 1005719324771424, guid: 0cf0da7678774ba469f972616b072b3e, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
-    - target: {fileID: 114940825919490132, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: _serializer._serializedDocument
-      value: <component version="1.8" type="RAIN.Entities.EntityRig" reference="0"
-        includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_entity
-        reference="1"><_entityName>Player</_entityName><_isActive>True</_isActive><_form
-        sceneobject="476a9e14-a96d-45b4-84d6-07f9c3a989a9"></_form><_aspects><element0
-        type="RAIN.Entities.Aspects.VisualAspect" reference="2"><_showVisual>True</_showVisual><_aspectName>Player</_aspectName><_isActive>True</_isActive><_aspectColor>0,0.6,0.6,1</_aspectColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_visualSize>1</_visualSize><_mountPoint
-        sceneobject="476a9e14-a96d-45b4-84d6-07f9c3a989a9" component="0"></_mountPoint><_positionOffset>0,0.36,0</_positionOffset><_angleOffset>0,0,0</_angleOffset></element0></_aspects></_entity></component>
-      objectReference: {fileID: 0}
-    - target: {fileID: 114940825919490132, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: _serializer._serializedMetaDocument
-      value: <meta></meta>
-      objectReference: {fileID: 0}
-    - target: {fileID: 114940825919490132, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: _serializer._serializedObjects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114940825919490132, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: _serializer._serializedCustomData.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 135584227492195928, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: m_Center.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 135584227492195928, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114044215164030038, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: detectorRadius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114044215164030038, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: detectorZ
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 135584227492195928, guid: 0cf0da7678774ba469f972616b072b3e,
+    - target: {fileID: 124631383698940802, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114825691313892358, guid: 0cf0da7678774ba469f972616b072b3e,
-        type: 2}
-      propertyPath: weaponSwapDelay
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cf0da7678774ba469f972616b072b3e, type: 2}
@@ -3162,10 +3111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781697ef900ab6943acccf74b8997568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoilControlVertical: 7
-  recoilControlHorizontal: 7
-  maxVerticalRecoil: 20
-  maxHorizontalRecoil: 20
+  recoilControlVertical: 1
+  recoilControlHorizontal: 1
+  maxVerticalRecoil: 5
+  maxHorizontalRecoil: 15
 --- !u!1 &1769846830
 GameObject:
   m_ObjectHideFlags: 0
