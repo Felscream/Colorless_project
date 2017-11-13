@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Jump()
     {
-         Debug.Log("Jumping " + IsGrounded() );
+         Debug.Log("Jumping ");
          if (rb != null && IsGrounded())
          {
             rb.velocity = new Vector3(rb.velocity.x, Vector3.up.y * jumpHeight, rb.velocity.z);

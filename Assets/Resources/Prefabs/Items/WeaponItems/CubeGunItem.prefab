@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18db8346b7546114da2bd858c72ff7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Cube Gun
+  interactionName: CUBE_GUN
   id: cubegun
   weaponPrefabName: CubeGun
   clipAmmo: 5

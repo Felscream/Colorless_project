@@ -127,5 +127,5 @@ MonoBehaviour:
   reloadTime: 1.75
   gunPrefabFolder: Prefabs/Weapons/Guns
   prefab: SphereGun
-  weaponName: Sphere Gun
+  weaponName: SPHEREGUN
   projectile: {fileID: 1173410120467334, guid: e230b1a006010604585767f7a8c62627, type: 2}

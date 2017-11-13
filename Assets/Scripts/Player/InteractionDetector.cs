@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionDetector : MonoBehaviour {
 
@@ -10,7 +11,8 @@ public class InteractionDetector : MonoBehaviour {
     private Collider[] detector;
     private Transform player;
     private Vector3 detectorLocation;
-
+    private Text interactionPrompt;
+    private TextManager textManager;
 
     private void Awake()
     {
@@ -37,13 +39,16 @@ public class InteractionDetector : MonoBehaviour {
     private void Start()
     {
         player = GetComponent<Transform>();
+        interactionPrompt = GameObject.FindGameObjectWithTag("InteractionPrompt").GetComponent<Text>();
+        interactionPrompt.enabled = false;
+        textManager = TextManager.GetInstance();
     }
     private void UpdateDetectorLocationAndScan()
     {
         //update detector location just before the player
         if(player != null)
         {
-            detectorLocation = player.position + new Vector3(detectorX, detectorY, detectorZ);
+            detectorLocation = player.position + player.forward + new Vector3(detectorX, detectorY, detectorZ);
             detector = Physics.OverlapSphere(detectorLocation, detectorRadius, LayerMask.GetMask("Interaction"));
         }
         else
@@ -62,7 +67,20 @@ public class InteractionDetector : MonoBehaviour {
         UpdateDetectorLocationAndScan();
         if (InteractionPossible())
         {
+            interactionPrompt.enabled = true;
+            Interaction interaction = GetClosestInteraction();
+            if (interaction is Item)
+            {
+                string action = textManager.GetInteraction("TAKE");
+                string itemName = textManager.GetObject(interaction.GetItemName());
+                Debug.Log(itemName);
+                interactionPrompt.text = action + " " + itemName;
+            }
             Debug.Log("Interaction possible");
+        }
+        else
+        {
+            interactionPrompt.enabled = false;
         }
     }
 
@@ -97,7 +115,7 @@ public class InteractionDetector : MonoBehaviour {
         }
         if (closestInteraction == null)
         {
-            Debug.Log("Interaction not found on " + closestInteraction.gameObject.transform.name);
+            Debug.Log("Interaction not found");
         }
         return closestInteraction;
     }

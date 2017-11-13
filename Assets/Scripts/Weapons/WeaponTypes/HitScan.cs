@@ -57,7 +57,6 @@ public abstract class HitScan : Weapon {
             Debug.Log("Firing");
             firingStart = Time.time;
             Vector3 dir = cam.transform.forward;
-            Debug.Log(dir);
             StartCoroutine(ShotEffect());
             spreading = Random.Range(startingBulletSpread, bulletSpread);
             Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));

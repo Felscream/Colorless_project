@@ -129,7 +129,7 @@ MonoBehaviour:
   reloadTime: 1
   gunPrefabFolder: Prefabs/Weapons/Guns
   prefab: RayGun
-  weaponName: RayGun
+  weaponName: RAYGUN
   weaponRange: 150
   damage: 7
   startingBulletSpread: 0

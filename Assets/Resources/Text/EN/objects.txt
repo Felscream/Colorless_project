@@ -1,0 +1,4 @@
+DOOR:Door
+RAY_GUN:Rail gun
+SPHERE_GUN:Sphere gun
+CUBE_GUN:Cube gun
