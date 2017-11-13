@@ -207,6 +207,10 @@ public class PlayerActions : MonoBehaviour {
         }
     }
 
+    public bool IsSwappingWeapon()
+    {
+        return ChangeWeaponAxisInUse;
+    }
     public void SetFiring(bool state)
     {
         firing = state;

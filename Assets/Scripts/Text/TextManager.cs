@@ -18,7 +18,6 @@ public class TextManager : MonoBehaviour {
         TextAsset targetFile = Resources.Load<TextAsset>(filePath);
 
         string[] textLines = targetFile.text.Split('\n');
-        Debug.Log(textLines[0] + " " + textLines[1  ]);
         foreach(string line in textLines)
         {
             if(line != "")
@@ -27,7 +26,6 @@ public class TextManager : MonoBehaviour {
                 obj.Add(split[0], split[1]);
             } 
         }
-        Debug.Log(obj);
         textDictionnary.Add(interactionDictionaryName, obj);
         yield return null;
     }
@@ -40,7 +38,6 @@ public class TextManager : MonoBehaviour {
         TextAsset targetFile = Resources.Load<TextAsset>(filePath);
 
         string[] textLines = targetFile.text.Split('\n');
-        Debug.Log(textLines[0] + " " + textLines[1]);
         foreach (string line in textLines)
         {
             if (line != "")

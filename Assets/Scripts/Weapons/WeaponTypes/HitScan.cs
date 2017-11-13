@@ -5,11 +5,11 @@ using TeamUtility.IO;
 
 public abstract class HitScan : Weapon {
     [SerializeField]
-    protected float weaponRange;
+    protected float weaponRange, cameraRecoilDistance = 1, recoilIntensityIncrement = 0.1f;
     [SerializeField]
     protected int damage, startingBulletSpread, maxBulletSpread,
         bulletSpreadRatePerSecond, bulletSpreadRecovery;
-    protected float bulletSpread, spreading;
+    protected float bulletSpread, spreading, recoilIntensity = 0;
     protected LineRenderer laserLine;
 
     protected abstract IEnumerator ShotEffect();
@@ -110,6 +110,11 @@ public abstract class HitScan : Weapon {
         }
         else
         {
+            recoilIntensity -= 2*recoilIntensityIncrement;
+            if(recoilIntensity < 0)
+            {
+                recoilIntensity = 0;
+            }
             if (!(Time.time >= (1 / fireRate + firingStart)))
             {
                 Debug.Log("Blocked by rate of fire");

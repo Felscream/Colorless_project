@@ -59,24 +59,28 @@ public class InteractionDetector : MonoBehaviour {
 
     private bool InteractionPossible()
     {
+        
         if (detector.Length > 0)
+        {
+            Debug.Log(detector[0]);
             return true;
+        }
+            
         return false;
     }
     void Update () {
         UpdateDetectorLocationAndScan();
         if (InteractionPossible())
         {
-            interactionPrompt.enabled = true;
             Interaction interaction = GetClosestInteraction();
             if (interaction is Item)
             {
                 string action = textManager.GetInteraction("TAKE");
                 string itemName = textManager.GetObject(interaction.GetItemName());
-                Debug.Log(itemName);
                 interactionPrompt.text = action + " " + itemName;
             }
             Debug.Log("Interaction possible");
+            interactionPrompt.enabled = true;
         }
         else
         {

@@ -33,7 +33,6 @@ public abstract class Weapon : MonoBehaviour{
             if (t.tag == "BulletSpawn" && t.gameObject.activeInHierarchy)
             {
                 bulletSpawn = t;
-                Debug.Log("Bullet spawn transform found for " + gameObject.name);
             }
         }
         if (bulletSpawn == null)
@@ -94,7 +93,6 @@ public abstract class Weapon : MonoBehaviour{
             {
                 HitScan temp = (HitScan)this;
                 temp.ResetBulletSpread();
-                Debug.Log(temp.GetSpreading());
             }
             weaponData.SetClipAmmo(clipAmmo);
             weaponData.ChangeInventoryAmmo(-ammoSpent);

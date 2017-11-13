@@ -62,8 +62,6 @@ public class Player : Character {
         int tDamage = (int)Mathf.Ceil(damage);
 
         currentHealth = currentHealth < 0 ? 0 : currentHealth - tDamage;
-
-        Debug.Log("Player damaged for " + tDamage + " | health : " + currentHealth);
         UpdateHealthUI();
     }
 }

@@ -145,6 +145,10 @@ public class Inventory : MonoBehaviour {
                 currentArsenalIndex = slot;
                 return currentWeapon;
             }
+            else
+            {
+                Debug.Log("Weapon already equipped");
+            }
         }
         Debug.Log("Weapon not found");
         return currentWeapon;
