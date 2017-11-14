@@ -19,12 +19,6 @@ public class Brawler : Enemy {
         InitializeAI();
     }
 
-    public void Start()
-    {
-        transform.parent = null;
-        aiRig = GetComponentInChildren<AIRig>();
-        aiRig.AI.Body = gameObject;
-    }
     public void Attack()
     {
         Transform self = GetComponent<Transform>();
@@ -48,12 +42,5 @@ public class Brawler : Enemy {
     public float GetLastAttackTime()
     {
         return lastAttackTime;
-    }
-
-    public void InitializeAI()
-    {
-        aiRig = GetComponentInChildren<RAIN.Core.AIRig>();
-        aiRig.AI.Body = this.gameObject;
-        aiRig.AI.BodyInit();
     }
 }
