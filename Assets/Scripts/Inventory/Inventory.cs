@@ -11,7 +11,11 @@ public class Inventory : MonoBehaviour {
 	private ICapacityItem currentCapacity;
     private int arsenalSize;
     private int currentArsenalIndex;
-    public static Inventory GetInstance()
+
+
+	public Health healthScript;
+
+	public static Inventory GetInstance()
     {
         if (instance == null)
         {
@@ -22,9 +26,9 @@ public class Inventory : MonoBehaviour {
     }
 	private void Start()
 	{
+		healthScript = GetComponent<Health>();
+
 		Debug.Log("STARTING");
-		capacities.Add(new Regeneration());
-		capacities[0].DoEffect();
 	}
 	private void Awake()
     {
@@ -203,5 +207,21 @@ public class Inventory : MonoBehaviour {
         return currentWeapon;
     }
 
+
+
+	public void AddCapacity(ICapacityItem capacityItem)
+	{
+		capacities.Add(capacityItem);
+	}
+
+	public int DeleteCapacity(string id)
+	{
+		return capacities.RemoveAll(x => (x.GetId() == id));
+	}
+
+	public ICapacityItem GetCapacity(string id)
+	{
+		return capacities.Find(x => (x.GetId() == id));
+	}
 
 }

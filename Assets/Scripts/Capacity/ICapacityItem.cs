@@ -6,4 +6,5 @@ public interface ICapacityItem  {
 
 	// Use this for initialization
 	void DoEffect();
+	string GetId();
 }
