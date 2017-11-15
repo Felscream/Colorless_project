@@ -17,6 +17,8 @@ TagManager:
   - Gameover
   - Health
   - Crosshair
+  - InteractionPrompt
+  - LifeGem
   layers:
   - Default
   - TransparentFX
@@ -33,8 +35,8 @@ TagManager:
   - Player
   - PlayerProjectile
   - Weapon
-  - 
-  - 
+  - ItemCollector
+  - Collectible
   - 
   - 
   - 

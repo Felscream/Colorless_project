@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1.5
   reloadTime: 2
+  verticalRecoilIncrease: 20
+  horizontalRecoilIncrease: 15
   gunPrefabFolder: Prefabs/Weapons/Guns
   prefab: CubeGun
   weaponName: Cube Gun

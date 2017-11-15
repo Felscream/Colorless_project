@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour{
     [SerializeField]
-    protected float fireRate, reloadTime;
+    protected float fireRate, reloadTime, verticalRecoilIncrease, horizontalRecoilIncrease;
     [SerializeField]
     protected string gunPrefabFolder = "Prefabs/Weapons/Guns";
     [SerializeField]
     protected string prefab, weaponName;
     protected Transform bulletSpawn;
-
+    protected float verticalRecoil = 0.0f, horizontalRecoil = 0.0f;
     protected Camera cam;
     protected Text ammoInfo;
     //weapon related timers
@@ -33,7 +33,6 @@ public abstract class Weapon : MonoBehaviour{
             if (t.tag == "BulletSpawn" && t.gameObject.activeInHierarchy)
             {
                 bulletSpawn = t;
-                Debug.Log("Bullet spawn transform found for " + gameObject.name);
             }
         }
         if (bulletSpawn == null)
@@ -58,7 +57,7 @@ public abstract class Weapon : MonoBehaviour{
     {
         UpdateAmmoInfo();
     }
-
+    
     //abstract Fire() Method
     public abstract void Fire();
     protected bool CanFire()
@@ -94,7 +93,6 @@ public abstract class Weapon : MonoBehaviour{
             {
                 HitScan temp = (HitScan)this;
                 temp.ResetBulletSpread();
-                Debug.Log(temp.GetSpreading());
             }
             weaponData.SetClipAmmo(clipAmmo);
             weaponData.ChangeInventoryAmmo(-ammoSpent);

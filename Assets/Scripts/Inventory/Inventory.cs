@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
     private static Inventory instance;
@@ -12,6 +13,8 @@ public class Inventory : MonoBehaviour {
     private int arsenalSize;
     private int currentArsenalIndex;
 	public Health healthScript;
+    private int lifeGem = 0;
+    private Text lifeGemText;
     public static Inventory GetInstance()
     {
         if (instance == null)
@@ -21,11 +24,7 @@ public class Inventory : MonoBehaviour {
         }
         return instance;
     }
-	private void Start()
-	{
-		healthScript = GetComponent<Health>();
-	}
-    private void Awake()
+    public void Awake()
     {
         if (instance == null)
         {
@@ -45,6 +44,31 @@ public class Inventory : MonoBehaviour {
         }
     }
 
+    public void Start()
+    {
+		healthScript = GetComponent<Health>();
+
+		lifeGemText = GameObject.FindGameObjectWithTag("LifeGem").GetComponent<Text>();
+        lifeGemText.text = lifeGem.ToString();
+        lifeGemText.enabled = true;
+    }
+
+    public void Update()
+    {
+        UpdateLifeGemText();
+    }
+
+    private void UpdateLifeGemText()
+    {
+		//Temporaire
+		if (capacities.Count != 0)
+		{
+			currentCapacity = capacities[0];
+			currentCapacity.DoEffect();
+		}
+		//
+		lifeGemText.text = lifeGem.ToString();
+    }
     private bool LatestWeaponDifferentFromWeapon(WeaponItemData weapon)
     {
         if (latestWeapon != weapon)
@@ -152,6 +176,10 @@ public class Inventory : MonoBehaviour {
                 currentArsenalIndex = slot;
                 return currentWeapon;
             }
+            else
+            {
+                Debug.Log("Weapon already equipped");
+            }
         }
         Debug.Log("Weapon not found");
         return currentWeapon;
@@ -202,7 +230,11 @@ public class Inventory : MonoBehaviour {
         return currentWeapon;
     }
 
-
+    public void CollectLifeGem(int amount)
+    {
+        lifeGem += amount;
+    }
+	
 	public void AddCapacity(ICapacityItem capacityItem)
 	{
 		capacities.Add(capacityItem);
@@ -218,13 +250,9 @@ public class Inventory : MonoBehaviour {
 		return capacities.Find(x => (x.GetId() == id));
 	}
 
-	private void Update()
-	{
-		//Temporaire pour tester les capa
-		if(capacities.Count != 0)
-		{
-			currentCapacity = capacities[0];
-			currentCapacity.DoEffect();
-		}
-	}
+	
+    public int GetLifeGem()
+    {
+        return lifeGem;
+    }
 }

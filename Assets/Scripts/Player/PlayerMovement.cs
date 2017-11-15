@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     private Quaternion xQuaternion;
     private Quaternion yQuaternion;
     private Quaternion originalRotation;
-
+    private Quaternion cameraOriginalRotation;
     private List<float> rotArrayX = new List<float>();
     private List<float> rotArrayY = new List<float>();
     private Rigidbody rb;
@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             rb.freezeRotation = true;
         }
         originalRotation = transform.localRotation;
+        cameraOriginalRotation = Camera.main.transform.localRotation;
     }
 
     private void FixedUpdate()
@@ -76,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Jump()
     {
-         Debug.Log("Jumping " + IsGrounded() );
+         Debug.Log("Jumping ");
          if (rb != null && IsGrounded())
          {
             rb.velocity = new Vector3(rb.velocity.x, Vector3.up.y * jumpHeight, rb.velocity.z);
@@ -103,12 +104,6 @@ public class PlayerMovement : MonoBehaviour {
     }
     public void Rotate(float rotX, float rotY, Transform cam)
     {
-        
-        cam.Rotate(new Vector3(rotY, 0f, 0f));
-        //limit camera yaw
-        cam.localEulerAngles = new Vector3(Mathf.Clamp(cam.localEulerAngles.x, 0, 360), 0, 0);
-
-
         float rotAverageX = 0f;
         rotationX += rotX;
         rotArrayX.Add(rotationX);
@@ -142,7 +137,10 @@ public class PlayerMovement : MonoBehaviour {
 
         xQuaternion = Quaternion.AngleAxis(rotAverageX, Vector3.up);
         yQuaternion = Quaternion.AngleAxis(rotAverageY, Vector3.left);
+        //player body rotation
         transform.localRotation = originalRotation * xQuaternion;
+        //camera rotation
+        cam.transform.localRotation = cameraOriginalRotation * yQuaternion;
     }
     
     public bool IsGrounded()
@@ -154,14 +152,18 @@ public class PlayerMovement : MonoBehaviour {
     public void OnCollisionEnter(Collision collision)
     {
         Collider myCollider = GetComponent<Collider>();
-        foreach(ContactPoint cp in collision.contacts)
+        if (collision.gameObject.layer == LayerMask.GetMask("Obstacle"))
         {
-            if (cp.thisCollider == myCollider)
+            foreach (ContactPoint cp in collision.contacts)
             {
-                if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
+                if (cp.thisCollider == myCollider)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
-                    rb.velocity = transform.up;
+                    if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
+                    {
+                        //step up
+                        transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
+                        rb.velocity = transform.up;
+                    }
                 }
             }
         }

@@ -141,10 +141,12 @@ public class PlayerInput : MonoBehaviour {
 
         // joystick axis
         if (InputManager.GetAxis("GamepadHorizontal") != 0.0f ||
-           InputManager.GetAxis("GamepadHorizontal") != 0.0f)
+        InputManager.GetAxis("GamepadVertical") != 0.0f)
         {
             return true;
         }
+        
+        
 
         return false;
     }
@@ -186,30 +188,43 @@ public class PlayerInput : MonoBehaviour {
         }
 
         //INVENTORY NAVIGATION
-        int inputChangeWeapon = (int)InputManager.GetAxisRaw("ChangeWeapon");
-        if (inputChangeWeapon != 0)
+        
+        if (!pa.IsSwappingWeapon())
         {
-            StartCoroutine(pa.ChangeWeapon(inputChangeWeapon));    
-        }
-        if (InputManager.GetButtonDown("LatestWeapon"))
-        {
-            StartCoroutine(pa.EquipLatestWeapon());
-        }
+            int inputChangeWeapon = (int)InputManager.GetAxisRaw("ChangeWeapon");
+            if (inputChangeWeapon != 0)
+            {
+                StartCoroutine(pa.ChangeWeapon(inputChangeWeapon));
+            }
 
-        if (InputManager.GetButtonDown("WeaponSlot0"))
-        {
-            StartCoroutine(pa.EquipWeaponSlot(0));
-        }else if (InputManager.GetButtonDown("WeaponSlot1"))
-        {
-            StartCoroutine(pa.EquipWeaponSlot(1));
-        }else if (InputManager.GetButtonDown("WeaponSlot2"))
-        {
-            StartCoroutine(pa.EquipWeaponSlot(2));
-        }else if (InputManager.GetButtonDown("WeaponSlot3"))
-        {
-            StartCoroutine(pa.EquipWeaponSlot(3));
+            if (inputType == eInputType.Controller)
+            {
+                if (InputManager.GetButtonDown("LatestWeapon"))
+                {
+                    StartCoroutine(pa.EquipLatestWeapon());
+                }
+            }
+            else
+            {
+                if (InputManager.GetButtonDown("WeaponSlot0"))
+                {
+                    StartCoroutine(pa.EquipWeaponSlot(0));
+                }
+                else if (InputManager.GetButtonDown("WeaponSlot1"))
+                {
+                    StartCoroutine(pa.EquipWeaponSlot(1));
+                }
+                else if (InputManager.GetButtonDown("WeaponSlot2"))
+                {
+                    StartCoroutine(pa.EquipWeaponSlot(2));
+                }
+                else if (InputManager.GetButtonDown("WeaponSlot3"))
+                {
+                    StartCoroutine(pa.EquipWeaponSlot(3));
+                }
+            }
         }
-
+        
 
         if (inputType == eInputType.MouseKeyboard)
         {
