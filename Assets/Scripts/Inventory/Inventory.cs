@@ -7,8 +7,11 @@ public class Inventory : MonoBehaviour {
     private const int inventoryCapacity = 4;
     private List<WeaponItemData> arsenal = new List<WeaponItemData>();
     private WeaponItemData currentWeapon, latestWeapon;
+    private List<ICapacityItem> capacities = new List<ICapacityItem>();
+	private ICapacityItem currentCapacity;
     private int arsenalSize;
     private int currentArsenalIndex;
+	public Health healthScript;
     public static Inventory GetInstance()
     {
         if (instance == null)
@@ -18,6 +21,10 @@ public class Inventory : MonoBehaviour {
         }
         return instance;
     }
+	private void Start()
+	{
+		healthScript = GetComponent<Health>();
+	}
     private void Awake()
     {
         if (instance == null)
@@ -196,4 +203,28 @@ public class Inventory : MonoBehaviour {
     }
 
 
+	public void AddCapacity(ICapacityItem capacityItem)
+	{
+		capacities.Add(capacityItem);
+	}
+
+	public int DeleteCapacity(string id)
+	{
+		return capacities.RemoveAll(x => (x.GetId() == id));
+	}
+
+	public ICapacityItem GetCapacity(string id)
+	{
+		return capacities.Find(x => (x.GetId() == id));
+	}
+
+	private void Update()
+	{
+		//Temporaire pour tester les capa
+		if(capacities.Count != 0)
+		{
+			currentCapacity = capacities[0];
+			currentCapacity.DoEffect();
+		}
+	}
 }
