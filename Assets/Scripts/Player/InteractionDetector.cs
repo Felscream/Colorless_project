@@ -72,14 +72,20 @@ public class InteractionDetector : MonoBehaviour {
         if (InteractionPossible())
         {
             Interaction interaction = GetClosestInteraction();
-            if (interaction is Item)
+            if(interaction != null)
             {
-                string action = textManager.GetInteraction("TAKE");
-                string itemName = textManager.GetObject(interaction.GetItemName());
-                interactionPrompt.text = action + " " + itemName;
-            }
-            Debug.Log("Interaction possible");
-            interactionPrompt.enabled = true;
+                if (interaction.IsInteractive())
+                {
+                    if (interaction is Item)
+                    {
+                        string action = textManager.GetInteraction("TAKE");
+                        string itemName = textManager.GetObject(interaction.GetItemName());
+                        interactionPrompt.text = action + " " + itemName;
+                    }
+                    Debug.Log("Interaction possible");
+                    interactionPrompt.enabled = true;
+                }
+            } 
         }
         else
         {

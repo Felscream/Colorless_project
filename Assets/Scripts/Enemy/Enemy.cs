@@ -12,13 +12,15 @@ public abstract class Enemy : Character {
     [SerializeField]
     protected string prefabName;
     [SerializeField]
-    protected float visualSensorHorizontalAngle, visualSensorVerticalAngle, visualSensorYOffset, visualSensorRange;
+    protected float visualSensorHorizontalAngle, visualSensorVerticalAngle, visualSensorYOffset, visualSensorRange, speed, stepOffset, closeDistance;
+    protected Rigidbody rb;
     protected string prefabFolder = "Prefabs/Enemy";
     protected AIRig aiRig;
 
     public void Start()
     {
         transform.parent = null;
+        rb = GetComponent<Rigidbody>();
         InitializeAI();
     }
     // Update is called once per frame
@@ -27,15 +29,19 @@ public abstract class Enemy : Character {
     {
         aiRig = GetComponentInChildren<AIRig>();
         aiRig.AI.Body = gameObject;
-        RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor();
-        visualSensor.CanDetectSelf = false;
-        visualSensor.HorizontalAngle = visualSensorHorizontalAngle;
-        visualSensor.VerticalAngle = visualSensorVerticalAngle;
-        visualSensor.SensorName = "PlayerSensor";
-        visualSensor.RequireLineOfSight = true;
-        visualSensor.PositionOffset = new Vector3(0, visualSensorYOffset, 0);
-        visualSensor.Range = visualSensorRange;
-        visualSensor.LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy", "Player", "Interaction");
+        aiRig.AI.Motor.Speed = speed;
+        aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
+        RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor
+        {
+            CanDetectSelf = false,
+            HorizontalAngle = visualSensorHorizontalAngle,
+            VerticalAngle = visualSensorVerticalAngle,
+            SensorName = "PlayerSensor",
+            RequireLineOfSight = true,
+            PositionOffset = new Vector3(0, visualSensorYOffset, 0),
+            Range = visualSensorRange,
+            LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy", "Player", "Interaction")
+        };
         aiRig.AI.Senses.AddSensor(visualSensor);
     }
     private void Update () {
@@ -64,5 +70,26 @@ public abstract class Enemy : Character {
         }*/
         CheckDeath();
     }
-    
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Collider myCollider = GetComponent<Collider>();
+        if(collision.gameObject.layer == LayerMask.GetMask("Obstacle"))
+        {
+            Debug.Log("col");
+            foreach (ContactPoint cp in collision.contacts)
+            {
+                if (cp.thisCollider == myCollider)
+                {
+                    if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
+                    {
+                        //step up
+                        transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
+                        rb.velocity = transform.up;
+                    }
+                }
+            }
+        }
+        
+    }
 }

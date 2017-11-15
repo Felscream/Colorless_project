@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
     private static Inventory instance;
@@ -9,6 +10,8 @@ public class Inventory : MonoBehaviour {
     private WeaponItemData currentWeapon, latestWeapon;
     private int arsenalSize;
     private int currentArsenalIndex;
+    private int lifeGem = 0;
+    private Text lifeGemText;
     public static Inventory GetInstance()
     {
         if (instance == null)
@@ -18,7 +21,7 @@ public class Inventory : MonoBehaviour {
         }
         return instance;
     }
-    private void Awake()
+    public void Awake()
     {
         if (instance == null)
         {
@@ -38,6 +41,22 @@ public class Inventory : MonoBehaviour {
         }
     }
 
+    public void Start()
+    {
+        lifeGemText = GameObject.FindGameObjectWithTag("LifeGem").GetComponent<Text>();
+        lifeGemText.text = lifeGem.ToString();
+        lifeGemText.enabled = true;
+    }
+
+    public void Update()
+    {
+        UpdateLifeGemText();
+    }
+
+    private void UpdateLifeGemText()
+    {
+        lifeGemText.text = lifeGem.ToString();
+    }
     private bool LatestWeaponDifferentFromWeapon(WeaponItemData weapon)
     {
         if (latestWeapon != weapon)
@@ -199,5 +218,13 @@ public class Inventory : MonoBehaviour {
         return currentWeapon;
     }
 
+    public void CollectLifeGem(int amount)
+    {
+        lifeGem += amount;
+    }
 
+    public int GetLifeGem()
+    {
+        return lifeGem;
+    }
 }

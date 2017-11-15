@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : Character {
     private static Player instance;
+    private Inventory inventory;
     private Text playerHealthUI;
 
     protected override IEnumerator Die()
@@ -34,6 +35,7 @@ public class Player : Character {
     private void Start()
     {
         UpdateHealthUI();
+        inventory = Inventory.GetInstance();
     }
 
     private void UpdateHealthUI()
@@ -64,4 +66,20 @@ public class Player : Character {
         currentHealth = currentHealth < 0 ? 0 : currentHealth - tDamage;
         UpdateHealthUI();
     }
+    public void OnCollisionEnter(Collision col)
+    {
+        Item item = col.gameObject.GetComponent<Item>();
+        if (item != null && inventory != null)
+        {
+            switch (item.GetType().ToString())
+            {
+                case "LifeGemItem":
+                    LifeGemItem lifeGem = (LifeGemItem)item;
+                    inventory.CollectLifeGem(lifeGem.GetAmount());
+                    item.DestroyItem();
+                    break;
+            }
+        }
+    }
+    
 }

@@ -9,7 +9,6 @@ public class Brawler : Enemy {
     private float attackRechargeTime, attackRadius, attackZ, attackY;
     private float lastAttackTime;
     private bool attacking;
-    private RAIN.Core.AIRig aiRig;
 
     protected new void Awake()
     {

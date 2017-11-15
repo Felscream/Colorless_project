@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionName: RAY_GUN
+  interactive: 1
   id: raygun
   weaponPrefabName: RayGun
   clipAmmo: 40

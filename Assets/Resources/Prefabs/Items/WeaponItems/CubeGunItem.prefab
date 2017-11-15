@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionName: CUBE_GUN
+  interactive: 1
   id: cubegun
   weaponPrefabName: CubeGun
   clipAmmo: 5

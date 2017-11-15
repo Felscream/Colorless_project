@@ -152,15 +152,18 @@ public class PlayerMovement : MonoBehaviour {
     public void OnCollisionEnter(Collision collision)
     {
         Collider myCollider = GetComponent<Collider>();
-        foreach(ContactPoint cp in collision.contacts)
+        if (collision.gameObject.layer == LayerMask.GetMask("Obstacle"))
         {
-            if (cp.thisCollider == myCollider)
+            foreach (ContactPoint cp in collision.contacts)
             {
-                if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
+                if (cp.thisCollider == myCollider)
                 {
-                    //step up
-                    transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
-                    rb.velocity = transform.up;
+                    if (cp.point.y < stepOffset && cp.point.y > myCollider.bounds.min.y)
+                    {
+                        //step up
+                        transform.position = Vector3.MoveTowards(transform.position, cp.point, Time.deltaTime * speed);
+                        rb.velocity = transform.up;
+                    }
                 }
             }
         }
