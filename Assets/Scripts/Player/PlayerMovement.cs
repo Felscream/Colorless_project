@@ -5,8 +5,9 @@ using TeamUtility.IO;
 
 public class PlayerMovement : MonoBehaviour {
     private static PlayerMovement instance;
-    [SerializeField]
-    private float stepOffset = 0.6f, speed, jumpSpeedModifier, jumpHeight, fallMultiplier, frameCounterX, frameCounterY, minimumY = -60f, maximumY = 60f;
+	public float speed, jumpHeight;
+	[SerializeField]
+    private float stepOffset = 0.6f, jumpSpeedModifier, fallMultiplier, frameCounterX, frameCounterY, minimumY = -60f, maximumY = 60f;
     private float distToGround, rotationX = 0f, rotationY = 0f;
     private Quaternion xQuaternion;
     private Quaternion yQuaternion;

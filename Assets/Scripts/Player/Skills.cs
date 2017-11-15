@@ -217,11 +217,11 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !s0)
 			{
-				playerMovement.jumpVelocity *= S0_JUMP_MULTIPLIER;
+				playerMovement.jumpHeight *= S0_JUMP_MULTIPLIER;
 			}
 			else
 			{
-			playerMovement.jumpVelocity *= S0_JUMP_MULTIPLIER;
+			playerMovement.jumpHeight *= S0_JUMP_MULTIPLIER;
 			}
 			s0 = value;
 		}
