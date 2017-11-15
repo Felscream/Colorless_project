@@ -31,7 +31,7 @@ public class Skills : MonoBehaviour {
 
 
 
-	public Health healthScript;
+	public Player player;
 	public PlayerMovement playerMovement;
 	public Inventory inventory;
 
@@ -42,11 +42,12 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !l0)
 			{
-				healthScript.maxHealth += healthScript.baseHealth * L_HEALTH_BONUS;
+				player.MaxHealth += (int)(player.BaseHealth * L_HEALTH_BONUS);
+				player.SetHealth(player.MaxHealth);
 			}
 			else
 			{
-				healthScript.maxHealth -= healthScript.baseHealth * L_HEALTH_BONUS;
+				player.MaxHealth -= (int)(player.BaseHealth * L_HEALTH_BONUS);
 			}
 			l0 = value;
 		}
@@ -63,11 +64,12 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !l1)
 			{
-				healthScript.maxHealth += healthScript.baseHealth * L_HEALTH_BONUS;
+				player.MaxHealth += (int)(player.BaseHealth * L_HEALTH_BONUS);
+				player.SetHealth(player.MaxHealth);
 			}
 			else
 			{
-				healthScript.maxHealth -= healthScript.baseHealth * L_HEALTH_BONUS;
+				player.MaxHealth -= (int)(player.BaseHealth * L_HEALTH_BONUS);
 			}
 			l1 = value;
 		}
@@ -84,11 +86,12 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !l2)
 			{
-				healthScript.maxHealth += healthScript.baseHealth * L_HEALTH_BONUS;
+				player.MaxHealth += (int)(player.BaseHealth * L_HEALTH_BONUS);
+				player.SetHealth(player.MaxHealth);
 			}
 			else
 			{
-				healthScript.maxHealth -= healthScript.baseHealth * L_HEALTH_BONUS;
+				player.MaxHealth -= (int)(player.BaseHealth * L_HEALTH_BONUS);
 			}
 			l2 = value;
 		}
@@ -105,7 +108,7 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !r0)
 			{
-				inventory.AddCapacity(new Regeneration(healthScript, "Regeneration"));
+				inventory.AddCapacity(new Regeneration(player, "Regeneration"));
 			}
 			else
 			{
@@ -322,7 +325,7 @@ public class Skills : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		healthScript = GetComponent<Health>();
+		player = GetComponent<Player>();
 		playerMovement = GetComponent<PlayerMovement>();
 		inventory = GetComponent<Inventory>();
 

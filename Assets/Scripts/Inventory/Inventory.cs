@@ -12,7 +12,6 @@ public class Inventory : MonoBehaviour {
 	private ICapacityItem currentCapacity;
     private int arsenalSize;
     private int currentArsenalIndex;
-	public Health healthScript;
     private int lifeGem = 0;
     private Text lifeGemText;
     public static Inventory GetInstance()
@@ -46,7 +45,6 @@ public class Inventory : MonoBehaviour {
 
     public void Start()
     {
-		healthScript = GetComponent<Health>();
 
 		lifeGemText = GameObject.FindGameObjectWithTag("LifeGem").GetComponent<Text>();
         lifeGemText.text = lifeGem.ToString();
@@ -55,18 +53,19 @@ public class Inventory : MonoBehaviour {
 
     public void Update()
     {
-        UpdateLifeGemText();
-    }
-
-    private void UpdateLifeGemText()
-    {
 		//Temporaire
 		if (capacities.Count != 0)
 		{
 			currentCapacity = capacities[0];
-			currentCapacity.DoEffect();
+			//currentCapacity.DoEffect();
 		}
 		//
+		UpdateLifeGemText();
+    }
+
+    private void UpdateLifeGemText()
+    {
+		
 		lifeGemText.text = lifeGem.ToString();
     }
     private bool LatestWeaponDifferentFromWeapon(WeaponItemData weapon)
@@ -255,4 +254,9 @@ public class Inventory : MonoBehaviour {
     {
         return lifeGem;
     }
+
+	public void DoCapacity()
+	{
+		currentCapacity.DoEffect();
+	}
 }

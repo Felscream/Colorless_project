@@ -13,9 +13,8 @@ public class Brawler : Enemy {
     protected new void Awake()
     {
         dead = false;
-        currentHealth = health;
+        currentHealth = BaseHealth;
         lastAttackTime = -attackRechargeTime;
-        InitializeAI();
     }
 
     public void Attack()

@@ -181,6 +181,11 @@ public class PlayerInput : MonoBehaviour {
         
         }
 
+		if(InputManager.GetAxis("Capacity") != 0 || InputManager.GetButtonDown("Capacity"))
+		{
+			// ability function
+		}
+
         //INTERACTIONS
         if (InputManager.GetButtonDown("Submit"))
         {

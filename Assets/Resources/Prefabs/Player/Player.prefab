@@ -76,9 +76,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4933255210057864}
   - component: {fileID: 65184462883922378}
-  m_Layer: 12
+  - component: {fileID: 114601545906225010}
+  m_Layer: 15
   m_Name: ItemCollector
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +115,7 @@ GameObject:
   - component: {fileID: 114339580233976320}
   - component: {fileID: 54366768210894578}
   - component: {fileID: 136858147414584740}
+  - component: {fileID: 114059590651879370}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -224,7 +226,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1869666447832478}
-  m_LocalRotation: {x: -0, y: 0.69543695, z: -0, w: -0.71858716}
+  m_LocalRotation: {x: 0, y: 0.7009094, z: -0, w: -0.7132504}
   m_LocalPosition: {x: -26.79, y: 1.93, z: -1.69}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -234,7 +236,7 @@ Transform:
   - {fileID: 4933255210057864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 271.876, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 271, z: 0}
 --- !u!20 &20041379858785720
 Camera:
   m_ObjectHideFlags: 1
@@ -416,6 +418,37 @@ MonoBehaviour:
   detectorX: 0
   detectorY: 0
   detectorZ: 1.5
+--- !u!114 &114059590651879370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869666447832478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f756a1c9080520d4182647b63c473633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  l0: 0
+  l1: 0
+  l2: 0
+  r0: 0
+  r1: 0
+  r2: 0
+  v0: 0
+  v1: 0
+  s0: 0
+  v2: 0
+  e0: 0
+  f0: 0
+  g0: 0
+  player: {fileID: 0}
+  playerMovement: {fileID: 0}
+  inventory: {fileID: 0}
+  M0: 0
+  M1: 0
+  B0: 0
+  B1: 0
 --- !u!114 &114133402423392066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,13 +471,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed2e74c5f22b99438ac8767e811eeef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepOffset: 0.6
   speed: 10
+  jumpHeight: 8
+  stepOffset: 0.6
   jumpSpeedModifier: 0.6
-  jumpHeight: 6.5
   fallMultiplier: 2.5
-  frameCounterX: 10
-  frameCounterY: 10
+  frameCounterX: 1
+  frameCounterY: 2
   minimumY: -60
   maximumY: 60
 --- !u!114 &114270349156608760
@@ -469,7 +502,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68846abf4772c964ca306e7cf6bfb85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  baseHealth: 100
+--- !u!114 &114601545906225010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1747831208789554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caadcecc3513674d8a6e65366334448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114825691313892358
 MonoBehaviour:
   m_ObjectHideFlags: 1

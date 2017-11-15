@@ -7,8 +7,10 @@ public class Player : Character {
     private static Player instance;
     private Inventory inventory;
     private Text playerHealthUI;
+	[SerializeField]
 
-    protected override IEnumerator Die()
+
+	protected override IEnumerator Die()
     {
         yield return null;
         GameObject.FindGameObjectWithTag("Gameover").GetComponent<Text>().enabled = true;
@@ -26,8 +28,9 @@ public class Player : Character {
         {
             instance = this;
             dead = false;
-            currentHealth = health;
-        }
+			currentHealth = base.BaseHealth;
+			MaxHealth = base.BaseHealth;
+		}
         playerHealthUI = GameObject.FindGameObjectWithTag("Health").GetComponent<Text>();
         
     }
@@ -81,5 +84,15 @@ public class Player : Character {
             }
         }
     }
-    
+
+
+	public void SetHealth(float value)
+	{
+		currentHealth = Mathf.Min(MaxHealth, value);
+	}    
+
+	public void Heal(float amount)
+	{
+		currentHealth = Mathf.Min(MaxHealth, currentHealth + amount);
+	}
 }

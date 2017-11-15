@@ -19,6 +19,7 @@ public abstract class Enemy : Character {
 
     public void Start()
     {
+
         transform.parent = null;
         rb = GetComponent<Rigidbody>();
         InitializeAI();

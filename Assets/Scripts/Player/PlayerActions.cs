@@ -83,6 +83,8 @@ public class PlayerActions : MonoBehaviour {
         return false;
     }
 
+
+
     private bool CanChangeWeapon()
     {
         if (inventory.ArsenalNotEmpty() && !ChangeWeaponAxisInUse)
@@ -122,6 +124,12 @@ public class PlayerActions : MonoBehaviour {
         ChangeWeaponAxisInUse = false;
 
     }
+
+	public void DoCapacity()
+	{
+		inventory.DoCapacity();
+	}
+
 
     public IEnumerator EquipLatestWeapon()
     {
