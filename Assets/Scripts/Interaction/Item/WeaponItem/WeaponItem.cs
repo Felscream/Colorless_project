@@ -13,7 +13,7 @@ public class WeaponItem : Item {
     WeaponItemData weaponData;
     private void Start()
     {
-        weaponData = new WeaponItemData(id, itemName, GetWeaponPrefabPath(), clipAmmo, maxClipAmmo, inventoryAmmo, maxTotalAmmo);
+        weaponData = new WeaponItemData(id, interactionName, GetWeaponPrefabPath(), clipAmmo, maxClipAmmo, inventoryAmmo, maxTotalAmmo);
     }
     public string GetWeaponPrefabPath()
     {

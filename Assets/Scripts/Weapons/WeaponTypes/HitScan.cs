@@ -24,6 +24,7 @@ public abstract class HitScan : Weapon {
         bulletSpread = startingBulletSpread;
     }
 
+
     public void IncrementBulletSpread()
     {
         bulletSpread += bulletSpreadRatePerSecond * Time.deltaTime;
@@ -57,7 +58,6 @@ public abstract class HitScan : Weapon {
             Debug.Log("Firing");
             firingStart = Time.time;
             Vector3 dir = cam.transform.forward;
-            Debug.Log(dir);
             StartCoroutine(ShotEffect());
             spreading = Random.Range(startingBulletSpread, bulletSpread);
             Vector3 rayOrigin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
@@ -75,10 +75,6 @@ public abstract class HitScan : Weapon {
                 y = Random.Range(-(0.1f * accuracy), 0.1f * accuracy),
                 z = 0
             };
-            
-            Debug.Log(randomOffset);
-
-
             dir += randomOffset;
             // Check if our raycast has hit anything
             if (Physics.Raycast(rayOrigin, dir, out hit, weaponRange, LayerMask.GetMask("Obstacle","Enemy","Interaction")))
@@ -122,6 +118,7 @@ public abstract class HitScan : Weapon {
 
         }
     }
+
     public float GetSpreading()
     {
         return spreading;

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RAIN;
+using RAIN.Core;
 
 public class Brawler : Enemy {
     // Use this for initialization
@@ -9,7 +9,6 @@ public class Brawler : Enemy {
     private float attackRechargeTime, attackRadius, attackZ, attackY;
     private float lastAttackTime;
     private bool attacking;
-    private RAIN.Core.AIRig aiRig;
 
     protected new void Awake()
     {
@@ -19,10 +18,6 @@ public class Brawler : Enemy {
         InitializeAI();
     }
 
-    public void Start()
-    {
-        
-    }
     public void Attack()
     {
         Transform self = GetComponent<Transform>();
@@ -46,12 +41,5 @@ public class Brawler : Enemy {
     public float GetLastAttackTime()
     {
         return lastAttackTime;
-    }
-
-    public void InitializeAI()
-    {
-        aiRig = GetComponentInChildren<RAIN.Core.AIRig>();
-        aiRig.AI.Body = this.gameObject;
-        aiRig.AI.BodyInit();
     }
 }
