@@ -3757,17 +3757,17 @@ Prefab:
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: v0
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: v1
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: s0
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
