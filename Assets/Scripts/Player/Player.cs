@@ -43,14 +43,14 @@ public class Player : Character {
 
     private void UpdateHealthUI()
     {
-        playerHealthUI.text = currentHealth.ToString();
+        playerHealthUI.text = ((int)currentHealth).ToString();
         CheckDeath();
     }
 
-    /*private void LateUpdate()
+    private void LateUpdate()
     {
         UpdateHealthUI();
-    }*/
+    }
 
     public static Player GetInstance()
     {

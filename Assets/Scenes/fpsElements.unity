@@ -333,6 +333,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: l0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: l1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: l2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: r0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: r1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: r2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059590651879370, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: v0
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cf0da7678774ba469f972616b072b3e, type: 2}
   m_IsPrefabParent: 0
@@ -2095,17 +2130,17 @@ MonoBehaviour:
       joystick: 0
     - name: Capacity
       description: 
-      positive: 113
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 1
       sensitivity: 1
-      snap: 0
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 8
       joystick: 0
     isExpanded: 1
   - name: OSX_Gamepad

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Regeneration : MonoBehaviour, ICapacityItem
+public class Regeneration : ICapacityItem
 {
 	public Player player;
-	public float efficiency = 1.0f;
+	public float efficiency = 10.0f;
 	private string id;
 	public float cost = 1.0f;
 	int TO_REPLACE_money = 10000;

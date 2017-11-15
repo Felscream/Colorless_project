@@ -181,9 +181,9 @@ public class PlayerInput : MonoBehaviour {
         
         }
 
-		if(InputManager.GetAxis("Capacity") != 0 || InputManager.GetButtonDown("Capacity"))
+		if(InputManager.GetAxis("Capacity") != 0 || InputManager.GetButton("Capacity"))
 		{
-			// ability function
+			pa.DoCapacity();
 		}
 
         //INTERACTIONS
