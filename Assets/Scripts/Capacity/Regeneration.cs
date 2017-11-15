@@ -22,7 +22,7 @@ public class Regeneration : MonoBehaviour, ICapacityItem
 		if (!healthScript) {
 			Debug.Log("ERREUR RECUPERATION HEALTH SCRIPT");
 		}
-		healthScript.health += efficiency * Time.deltaTime;
+		healthScript.health = Mathf.Min(healthScript.health + efficiency * Time.deltaTime, healthScript.maxHealth);
 		TO_REPLACE_money -= (int) (cost * Time.deltaTime);
 	}
 

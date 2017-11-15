@@ -224,4 +224,14 @@ public class Inventory : MonoBehaviour {
 		return capacities.Find(x => (x.GetId() == id));
 	}
 
+	private void Update()
+	{
+		//Temporaire pour tester les capa
+		if(capacities.Count != 0)
+		{
+			currentCapacity = capacities[0];
+			currentCapacity.DoEffect();
+		}
+	}
+
 }

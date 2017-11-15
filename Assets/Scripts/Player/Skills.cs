@@ -6,12 +6,12 @@ public class Skills : MonoBehaviour {
 
 
 
-	private const float L_HEALTH_MULTIPLIER = 1.25f; 
+	private const float L_HEALTH_BONUS = 0.25f; 
 	private const float V0_VELOCITY_MULTIPLIER = 1.10f;
 	private const float V1_VELOCITY_MULTIPLIER = 1.20f;
 	private const float R1_COST_MULTIPLIER = 0.75f;
 	private const float R2_COST_MULTIPLIER = 0.80f;
-	private const float R2_REGEN_INCREASE = 1.0f;
+	private const float R2_REGEN_MULTIPLIER = 3.0f;
 	private const float S0_JUMP_MULTIPLIER= 5.0f; 
 
 
@@ -42,12 +42,11 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !l0)
 			{
-				healthScript.baseHealth *= L_HEALTH_MULTIPLIER;
-				Debug.Log("Health inc");
+				healthScript.maxHealth += healthScript.baseHealth * L_HEALTH_BONUS;
 			}
 			else
 			{
-				healthScript.baseHealth *= 2 - L_HEALTH_MULTIPLIER;
+				healthScript.maxHealth -= healthScript.baseHealth * L_HEALTH_BONUS;
 			}
 			l0 = value;
 		}
@@ -64,11 +63,11 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !l1)
 			{
-				healthScript.baseHealth *= L_HEALTH_MULTIPLIER;
+				healthScript.maxHealth += healthScript.baseHealth * L_HEALTH_BONUS;
 			}
 			else
 			{
-				healthScript.baseHealth *= 2 - L_HEALTH_MULTIPLIER;
+				healthScript.maxHealth -= healthScript.baseHealth * L_HEALTH_BONUS;
 			}
 			l1 = value;
 		}
@@ -85,11 +84,11 @@ public class Skills : MonoBehaviour {
 		{
 			if (value)//&& !l2)
 			{
-				healthScript.baseHealth *= L_HEALTH_MULTIPLIER;
+				healthScript.maxHealth += healthScript.baseHealth * L_HEALTH_BONUS;
 			}
 			else
 			{
-				healthScript.baseHealth *= 2 - L_HEALTH_MULTIPLIER;
+				healthScript.maxHealth -= healthScript.baseHealth * L_HEALTH_BONUS;
 			}
 			l2 = value;
 		}
@@ -150,13 +149,13 @@ public class Skills : MonoBehaviour {
 			if (value)//&& !r2)
 			{
 				((Regeneration)inventory.GetCapacity("Regeneration")).cost *= R2_COST_MULTIPLIER;
-				((Regeneration)inventory.GetCapacity("Regeneration")).efficiency *= R2_REGEN_INCREASE;
+				((Regeneration)inventory.GetCapacity("Regeneration")).efficiency *= R2_REGEN_MULTIPLIER;
 
 			}
 			else
 			{
 				((Regeneration)inventory.GetCapacity("Regeneration")).cost *= 2 - R2_COST_MULTIPLIER;
-				((Regeneration)inventory.GetCapacity("Regeneration")).efficiency *= 2 - R2_REGEN_INCREASE;
+				((Regeneration)inventory.GetCapacity("Regeneration")).efficiency *= 2 - R2_REGEN_MULTIPLIER;
 
 			}
 			r2 = value;
@@ -338,6 +337,12 @@ public class Skills : MonoBehaviour {
 		if (V0) V0 = true;
 		if (V1) V1 = true;
 		if (S0) S0 = true;
+		if (S0) S0 = true;
+		if (S0) S0 = true;
+		if (V2) V2 = true;
+		if (E0) E0 = true;
+		if (F0) F0 = true;
+		if (G0) G0 = true;
 
 	}
 	

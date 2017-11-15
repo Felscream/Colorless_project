@@ -3742,51 +3742,61 @@ Prefab:
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: r0
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: r1
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: r2
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: v0
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: v1
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: s0
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: v2
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: e0
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: f0
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114126342842542512, guid: 0cf0da7678774ba469f972616b072b3e,
         type: 2}
       propertyPath: g0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114030709263472136, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114030709263472136, guid: 0cf0da7678774ba469f972616b072b3e,
+        type: 2}
+      propertyPath: regeneration
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
