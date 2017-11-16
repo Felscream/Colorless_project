@@ -5,16 +5,11 @@ using UnityEngine;
 public class LifeGemItem : Item {
     private Inventory playerInventory;
     [SerializeField]
-    protected string id, prefabName;
+    private string id, prefabName;
     [SerializeField]
-    protected int amount = 0;
-
+    private int amount = 0;
     [SerializeField]
-    private int rotationX;
-    [SerializeField]
-    private int rotationY;
-    [SerializeField]
-    private int rotationZ;
+    private float speed;
 
     private Vector3 playerPosition;
     private bool moving = false;
@@ -22,13 +17,13 @@ public class LifeGemItem : Item {
 
     private void Start()
     {
-        playerPosition = Camera.main.transform.position;
+        playerPosition = Player.GetInstance().transform.position;
     }
     void Update()
     {
-        transform.Rotate(new Vector3(rotationX, rotationY, rotationZ) * Time.deltaTime);
         if (moving)
         {
+            playerPosition = Player.GetInstance().transform.position;
             MoveTowardPlayer();
         }
     }
@@ -41,9 +36,8 @@ public class LifeGemItem : Item {
     {
         if(playerPosition != null)
         {
-            playerPosition = Camera.main.transform.position;
-            Vector3 heading = (playerPosition - transform.position).normalized;
-            transform.Translate(heading * 8 * Time.deltaTime);
+            Vector3 heading = Vector3.Normalize((playerPosition - transform.position));
+            transform.Translate(heading * speed * Time.deltaTime);
         }
     }
     public void EnableMove()

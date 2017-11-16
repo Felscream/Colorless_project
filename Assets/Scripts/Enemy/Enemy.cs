@@ -22,29 +22,10 @@ public abstract class Enemy : Character {
 
         transform.parent = null;
         rb = GetComponent<Rigidbody>();
-        InitializeAI();
     }
     // Update is called once per frame
 
-    public void InitializeAI()
-    {
-        aiRig = GetComponentInChildren<AIRig>();
-        aiRig.AI.Body = gameObject;
-        aiRig.AI.Motor.Speed = speed;
-        aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
-        RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor
-        {
-            CanDetectSelf = false,
-            HorizontalAngle = visualSensorHorizontalAngle,
-            VerticalAngle = visualSensorVerticalAngle,
-            SensorName = "PlayerSensor",
-            RequireLineOfSight = true,
-            PositionOffset = new Vector3(0, visualSensorYOffset, 0),
-            Range = visualSensorRange,
-            LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy", "Player", "Interaction")
-        };
-        aiRig.AI.Senses.AddSensor(visualSensor);
-    }
+    
     private void Update () {
 		
 	}
