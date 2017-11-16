@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RAIN.Core;
+using RAIN.Entities;
 
 public class Brawler : Enemy {
     // Use this for initialization
@@ -15,7 +16,6 @@ public class Brawler : Enemy {
         dead = false;
         currentHealth = BaseHealth;
         lastAttackTime = -attackRechargeTime;
-        InitializeAI();
     }
 
     public void Attack()
@@ -33,14 +33,18 @@ public class Brawler : Enemy {
         lastAttackTime = Time.time;
     }
 
-    public void InitializeAI()
+    protected override void InitializeAI()
     {
         aiRig = GetComponentInChildren<AIRig>();
-        aiRig.AI.Body = gameObject;
+        aiRig.AI.Body = this.gameObject;
+        entityRig = GetComponentInChildren<EntityRig>();
+        entityRig.Entity.Form = this.gameObject;
+        Debug.Log("Initializing ai");
         aiRig.AI.Motor.Speed = speed;
         aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
         RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor
         {
+            IsActive = true,
             CanDetectSelf = false,
             HorizontalAngle = visualSensorHorizontalAngle,
             VerticalAngle = visualSensorVerticalAngle,
@@ -50,11 +54,34 @@ public class Brawler : Enemy {
             Range = visualSensorRange,
             LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy", "Player", "Interaction")
         };
+        RAIN.Perception.Sensors.VisualSensor enemySensor = new RAIN.Perception.Sensors.VisualSensor
+        {
+            IsActive = true,
+            CanDetectSelf = false,
+            HorizontalAngle = 180,
+            VerticalAngle = 40,
+            SensorName = "EnemySensor",
+            RequireLineOfSight = true,
+            PositionOffset = new Vector3(0, visualSensorYOffset, 0),
+            Range = 11,
+            LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy")
+        };
+        RAIN.Entities.Aspects.VisualAspect visualAspect = new RAIN.Entities.Aspects.VisualAspect
+        {
+            AspectName = "Enemy",
+            IsActive = true,
+            MountPoint = gameObject.transform,
+            Position = Vector3.zero,
+            VisualSize = 4
+        };
         aiRig.AI.Senses.AddSensor(visualSensor);
+        aiRig.AI.Senses.AddSensor(enemySensor);
+        entityRig.Entity.AddAspect(visualAspect);
     }
     protected override IEnumerator Die()
     {
         yield return null;
+        aiManager.RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
 

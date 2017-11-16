@@ -64,9 +64,9 @@ public class Player : Character {
 
     public void ReceiveDamage(int damage)
     {
-        int tDamage = (int)Mathf.Ceil(damage);
-
-        currentHealth = currentHealth < 0 ? 0 : currentHealth - tDamage;
+        int tDamage = damage;
+        currentHealth -= tDamage;
+        currentHealth = currentHealth < 0 ? 0 : currentHealth;
         UpdateHealthUI();
     }
     public void OnCollisionEnter(Collision col)
