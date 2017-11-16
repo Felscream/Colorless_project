@@ -15,6 +15,7 @@ public class Brawler : Enemy {
         dead = false;
         currentHealth = BaseHealth;
         lastAttackTime = -attackRechargeTime;
+        InitializeAI();
     }
 
     public void Attack()
@@ -30,6 +31,26 @@ public class Brawler : Enemy {
 
         }
         lastAttackTime = Time.time;
+    }
+
+    public void InitializeAI()
+    {
+        aiRig = GetComponentInChildren<AIRig>();
+        aiRig.AI.Body = gameObject;
+        aiRig.AI.Motor.Speed = speed;
+        aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
+        RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor
+        {
+            CanDetectSelf = false,
+            HorizontalAngle = visualSensorHorizontalAngle,
+            VerticalAngle = visualSensorVerticalAngle,
+            SensorName = "PlayerSensor",
+            RequireLineOfSight = true,
+            PositionOffset = new Vector3(0, visualSensorYOffset, 0),
+            Range = visualSensorRange,
+            LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy", "Player", "Interaction")
+        };
+        aiRig.AI.Senses.AddSensor(visualSensor);
     }
     protected override IEnumerator Die()
     {

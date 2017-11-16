@@ -91,17 +91,14 @@ public class PlayerMovement : MonoBehaviour {
         float ySpeed = (moveY < 0 && !IsGrounded()) ?  speed * jumpSpeedModifier :  speed;
 
         //impeding X movements when aerial
-        //float xSpeed = IsGrounded() ? speed : speed * jumpSpeedModifier;
 
         //LIMIT DIAGONAL SPEED
         Vector3 movement = Vector3.Normalize((new Vector3(moveX, 0f, moveY)));
-        //movement = transform.TransformDirection(movement);
         //not impeding X movements when aerial
         movement.x *= speed;
 
         movement.z *= ySpeed;
         transform.Translate(movement * Time.deltaTime);
-        //controller.Move(movement * Time.deltaTime);   
     }
     public void Rotate(float rotX, float rotY, Transform cam)
     {
