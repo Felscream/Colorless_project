@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 222768755787913090}
   - component: {fileID: 114176994261140406}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LifeGemDisplay
   m_TagString: LifeGem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +519,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537377723552398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -191, y: -138.1, z: 0}
+  m_LocalPosition: {x: -379.5, y: -243.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224528368499449656}
@@ -527,7 +527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -191, y: -138.1}
+  m_AnchoredPosition: {x: -379.5, y: -243.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224579638458904236
