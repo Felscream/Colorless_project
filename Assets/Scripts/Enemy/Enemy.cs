@@ -16,11 +16,14 @@ public abstract class Enemy : Character {
     protected Rigidbody rb;
     protected string prefabFolder = "Prefabs/Enemy";
     protected AIRig aiRig;
+	private ColoriseRoom coloriseRoom;
+	private float colorRatio;
 
     public void Start()
     {
-
-        transform.parent = null;
+		coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
+		colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
+		transform.parent = null;
         rb = GetComponent<Rigidbody>();
         InitializeAI();
     }
@@ -51,7 +54,9 @@ public abstract class Enemy : Character {
 
     private void OnDestroy()
     {
-        foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
+		coloriseRoom.ColoriseRoomTexture(colorRatio);
+
+		foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
         Debug.Log(gameObject.transform.name + " killed");
     }
    

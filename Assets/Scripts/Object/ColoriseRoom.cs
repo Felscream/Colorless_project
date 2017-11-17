@@ -15,13 +15,17 @@ public class ColoriseRoom : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void ColoriseRoomTexture (float progressionValue) {
-		foreach(Colorise element in colorElements)
+	public void ColoriseRoomTexture (float progressionValue) {
+		foreach (Colorise element in colorElements)
+		{
+			Debug.Log("Corolorise Element: " + progressionValue);
 			element.ColoriseTexture(progressionValue);
+		}
+
 	}
 
 	void Update()
 	{
-		ColoriseRoomTexture(TestRatio);
+		//ColoriseRoomTexture(TestRatio * Time.deltaTime);
 	}
 }

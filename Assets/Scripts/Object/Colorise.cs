@@ -12,7 +12,7 @@ public class Colorise : MonoBehaviour {
 	// Update is called once per frame
 	public void ColoriseTexture(float progressionValue)
 	{
-		rend.material.SetFloat("_Blend", Mathf.Max(rend.material.GetFloat("_Blend") - progressionValue * Time.deltaTime, 0));
+		rend.material.SetFloat("_Blend", Mathf.Max(rend.material.GetFloat("_Blend") - progressionValue, 0));
 
 	}
 	public void SetRatioColor(float ratio)

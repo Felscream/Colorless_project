@@ -5,9 +5,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     private GameObject[] enemy;
+	[SerializeField]
+	private GameObject room;
     [SerializeField]
-    private float spawnDelay;
-    private float lastSpawnTime;
+	private float spawnDelay;
+	[SerializeField]
+	private int enemyQuantity = 2;
+	private float lastSpawnTime;
+	
 
     private Collider col;
 	
@@ -61,5 +66,14 @@ public class EnemySpawner : MonoBehaviour {
         
     }
 
+	public ColoriseRoom GetRoom()
+	{
+		return room.GetComponent<ColoriseRoom>();
+	}
  
+
+	public float GetColorRatio()
+	{
+		return 1f/enemyQuantity;
+	}
 }
