@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour {
     {
 
 		lifeGemText = GameObject.FindGameObjectWithTag("LifeGem").GetComponent<Text>();
-        lifeGemText.text = lifeGem.ToString();
+        lifeGemText.text = string.Format("{0:0,0.0}", lifeGem);
         lifeGemText.enabled = true;
     }
 
@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour {
     private void UpdateLifeGemText()
     {
 		
-		lifeGemText.text = lifeGem.ToString();
+		lifeGemText.text = string.Format("{0:0,0}", lifeGem); 
     }
     private bool LatestWeaponDifferentFromWeapon(WeaponItemData weapon)
     {

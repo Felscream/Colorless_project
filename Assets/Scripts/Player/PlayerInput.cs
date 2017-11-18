@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour {
     private Player player;
     private PlayerMovement mv;
     private PlayerActions pa;
+    private Footstep fs;
     private float movementX;
     private float movementY;
     private float lookX;
@@ -43,6 +44,7 @@ public class PlayerInput : MonoBehaviour {
         mv = PlayerMovement.GetInstance();
         player = Player.GetInstance(); 
         pa = PlayerActions.GetInstance();
+        fs = GetComponent<Footstep>();
     }
 
     // Update is called once per frame
@@ -248,6 +250,10 @@ public class PlayerInput : MonoBehaviour {
         }
 
         //AIMING
+        if (mv.IsGrounded() && !fs.GetStep() && (movementX != 0 || movementY != 0))
+        {
+            fs.PlayConcrete();
+        }
         mv.Rotate(lookX, lookY, camTransform);
     }
 
@@ -260,6 +266,7 @@ public class PlayerInput : MonoBehaviour {
         {
             mv.Jump();
         }
+        
     }
 
     public void PrintInput()

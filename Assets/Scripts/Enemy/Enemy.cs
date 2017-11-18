@@ -4,6 +4,7 @@ using UnityEngine;
 using RAIN;
 using RAIN.Perception;
 using RAIN.Core;
+using RAIN.Entities;
 
 
 public abstract class Enemy : Character {
@@ -14,28 +15,35 @@ public abstract class Enemy : Character {
     [SerializeField]
     protected float visualSensorHorizontalAngle, visualSensorVerticalAngle, visualSensorYOffset, visualSensorRange, speed, stepOffset, closeDistance;
     protected Rigidbody rb;
+    protected AIManager aiManager;
     protected string prefabFolder = "Prefabs/Enemy";
     protected AIRig aiRig;
+    protected EntityRig entityRig;
 
-    public void Start()
+    protected void Start()
     {
-
         transform.parent = null;
+        aiManager = GameObject.FindGameObjectWithTag("AIManager").GetComponent<AIManager>();
+        aiManager.AddEnemy(gameObject);
         rb = GetComponent<Rigidbody>();
+        InitializeAI();
+
     }
     // Update is called once per frame
 
-    
-    private void Update () {
+
+    protected void Update () {
 		
 	}
 
-    private void OnDestroy()
+    protected void OnDestroy()
     {
         foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
         Debug.Log(gameObject.transform.name + " killed");
     }
-   
+
+    protected abstract void InitializeAI();
+    
     public void ReceiveDamage(int damage, bool critical)
     {
         int tDamage = critical ? (int)Mathf.Ceil(damage * 1.5f) : (int)Mathf.Ceil(damage);
