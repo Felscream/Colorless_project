@@ -10,7 +10,7 @@ public class Brawler : Enemy {
     private float attackRechargeTime, attackRadius, attackZ, attackY;
     private float lastAttackTime;
     private bool attacking;
-
+    private string lifeGemPrefabPath;
     protected new void Awake()
     {
         dead = false;

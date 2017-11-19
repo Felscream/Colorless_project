@@ -44,4 +44,18 @@ public class LifeGemItem : Item {
     {
         moving = true;
     }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Inventory inventory = Inventory.GetInstance();
+            if (inventory != null)
+            {
+                inventory.CollectLifeGem(GetAmount());
+                DestroyItem();
+            }
+        }
+        
+    }
 }
