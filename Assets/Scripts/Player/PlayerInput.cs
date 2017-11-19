@@ -183,6 +183,13 @@ public class PlayerInput : MonoBehaviour {
         
         }
 
+        //MELEE
+        if (InputManager.GetButtonDown("Melee") && pa.CanMelee())
+        {
+            StartCoroutine(pa.Melee());
+        }
+
+
 		if(InputManager.GetAxis("Capacity") != 0 || InputManager.GetButton("Capacity"))
 		{
 			pa.DoCapacity();

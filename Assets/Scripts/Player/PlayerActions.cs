@@ -5,16 +5,20 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour {
     private static PlayerActions instance;
     [SerializeField]
-    private float weaponSwapDelay;
+    private float weaponSwapDelay, meleeRange, meleeTime;
+    [SerializeField]
+    private int meleeDamage;
     private Weapon weapon;
     private WaitForSeconds weaponSwapDelaySeconds;
     private Transform weaponLocation, camTransform;
     private InteractionDetector intDetector;
     private Inventory inventory;
     private GameObject equippedWeapon;
+    private Camera camera;
     private Coroutine reloadCoroutine;
     private bool ChangeWeaponAxisInUse = false;
     private bool firing;
+    private bool melee = true;
 
     public static PlayerActions GetInstance()
     {
@@ -48,6 +52,7 @@ public class PlayerActions : MonoBehaviour {
 
     private void Start()
     {
+        camera = Camera.main;
         inventory = Inventory.GetInstance();
         intDetector = InteractionDetector.GetInstance();
         weaponSwapDelaySeconds = new WaitForSeconds(weaponSwapDelay);
@@ -185,6 +190,24 @@ public class PlayerActions : MonoBehaviour {
         weapon.Fire();
     }
 
+    public IEnumerator Melee()
+    {
+        Debug.Log("Melee");
+        melee = false;
+        camera = Camera.main;
+        Vector3 origin = camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+        Vector3 dir = camera.transform.forward;
+        RaycastHit hit;
+        if (reloadCoroutine != null)
+        {
+            StopCoroutine(reloadCoroutine);
+        }
+        if (Physics.Raycast(origin, dir, out hit, meleeRange, LayerMask.GetMask("Enemy"))){
+            hit.transform.GetComponent<Enemy>().ReceiveDamage(meleeDamage, false);
+        }
+        yield return new WaitForSeconds(meleeTime);
+        melee = true;
+    }
     public void PlayerReload()
     {
         reloadCoroutine = StartCoroutine(weapon.Reload());
@@ -222,5 +245,10 @@ public class PlayerActions : MonoBehaviour {
     public void SetFiring(bool state)
     {
         firing = state;
+    }
+
+    public bool CanMelee()
+    {
+        return melee;
     }
 }
