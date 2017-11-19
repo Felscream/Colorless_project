@@ -10,7 +10,6 @@ public class Brawler : Enemy {
     private float attackRechargeTime, attackRadius, attackZ, attackY;
     private float lastAttackTime;
     private bool attacking;
-    private string lifeGemPrefabPath;
     protected new void Awake()
     {
         dead = false;
@@ -81,10 +80,15 @@ public class Brawler : Enemy {
     protected override IEnumerator Die()
     {
         yield return null;
+        lifeGemCreator.GetComponent<LifeGemSpawn>().SpawnLifeGem();
         aiManager.RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
 
+    public void DropLifeGems()
+    {
+        int lifeGemToDrop = Random.Range(minLifeGemDropped, maxLifeGemDropped);
+    }
     public float GetLastAttackTime()
     {
         return lastAttackTime;
