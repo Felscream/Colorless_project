@@ -44,6 +44,7 @@ public abstract class Character : MonoBehaviour {
         dead = false;
         currentHealth = BaseHealth;
         MaxHealth = BaseHealth;
+		
 	}
 
     protected abstract IEnumerator Die();

@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
 	private float spawnDelay;
 	[SerializeField]
-	private int enemyQuantity = 2;
+	private int enemyQuantity = 6;
+	private int spawnedEnemies = 0;
 	private float lastSpawnTime;
 	
 
@@ -38,10 +39,11 @@ public class EnemySpawner : MonoBehaviour {
                 enemy.transform.SetParent(transform);
                 enemy.transform.position = new Vector3(spawnX, spawnY, spawnZ);
                 lastSpawnTime = Time.time;
-                //Debug.Log("spawned");
-            }
-            
-        }
+				//Debug.Log("spawned");
+				++spawnedEnemies;
+			}
+
+		}
         
     }
     private void Start () {
@@ -62,7 +64,10 @@ public class EnemySpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	private void Update () {
-        SpawnEnemy();
+		if (enemyQuantity > spawnedEnemies)
+		{
+			SpawnEnemy();
+		}
         
     }
 
