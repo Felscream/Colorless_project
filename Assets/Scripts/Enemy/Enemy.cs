@@ -4,22 +4,26 @@ using UnityEngine;
 using RAIN;
 using RAIN.Perception;
 using RAIN.Core;
+using RAIN.Entities;
+
 
 
 public abstract class Enemy : Character
 {
 	[SerializeField]
-	protected int attackDamage;
+	protected int attackDamage, minLifeGemDropped, maxLifeGemDropped, minLifeGemValue, maxLifeGemValue;
 	[SerializeField]
 	protected string prefabName;
 	[SerializeField]
 	protected float visualSensorHorizontalAngle, visualSensorVerticalAngle, visualSensorYOffset, visualSensorRange, speed, stepOffset, closeDistance;
 	protected Rigidbody rb;
+	protected AIManager aiManager;
 	protected string prefabFolder = "Prefabs/Enemy";
 	protected AIRig aiRig;
+	protected EntityRig entityRig;
+	protected Transform lifeGemCreator;
 	private ColoriseRoom coloriseRoom;
 	private float colorRatio;
-	protected Transform lifeGemlifeGemCreator;
 
 
 	public void Start()
@@ -27,32 +31,16 @@ public abstract class Enemy : Character
 		coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
 		colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
 		transform.parent = null;
-
+		aiManager = GameObject.FindGameObjectWithTag("AIManager").GetComponent<AIManager>();
+		aiManager.AddEnemy(gameObject);
 		rb = GetComponent<Rigidbody>();
 		InitializeAI();
-		lifeGemlifeGemCreator = transform.Find("LifeGemSpawn");
+		lifeGemCreator = transform.Find("LifeGemSpawn");
+
 	}
 	// Update is called once per frame
 
-	public void InitializeAI()
-	{
-		aiRig = GetComponentInChildren<AIRig>();
-		aiRig.AI.Body = gameObject;
-		aiRig.AI.Motor.Speed = speed;
-		aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
-		RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor
-		{
-			CanDetectSelf = false,
-			HorizontalAngle = visualSensorHorizontalAngle,
-			VerticalAngle = visualSensorVerticalAngle,
-			SensorName = "PlayerSensor",
-			RequireLineOfSight = true,
-			PositionOffset = new Vector3(0, visualSensorYOffset, 0),
-			Range = visualSensorRange,
-			LineOfSightMask = LayerMask.GetMask("Obstacle", "Enemy", "Player", "Interaction")
-		};
-		aiRig.AI.Senses.AddSensor(visualSensor);
-	}
+	
 	private void Update()
 	{
 
