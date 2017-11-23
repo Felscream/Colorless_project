@@ -45,6 +45,7 @@ public abstract class Enemy : Character
 	{
 
 	}
+	protected abstract void InitializeAI();
 
 	private void OnDestroy()
 	{
