@@ -59,7 +59,7 @@ public class InteractionDetector : MonoBehaviour {
 
     private bool InteractionPossible()
     {
-        
+        Debug.Log(detector.Length);
         if (detector.Length > 0)
         {
             return true;
@@ -76,13 +76,21 @@ public class InteractionDetector : MonoBehaviour {
             {
                 if (interaction.IsInteractive())
                 {
+                    string action = "";
+                    string itemName = "";
                     if (interaction is Item)
                     {
-                        string action = textManager.GetInteraction("TAKE");
-                        string itemName = textManager.GetObject(interaction.GetItemName());
-                        interactionPrompt.text = action + " " + itemName;
+                        action = textManager.GetInteraction("TAKE");
+                        itemName = textManager.GetObject(interaction.GetItemName());
+                        
+                    }
+                    else if(interaction is Door)
+                    {
+                        action = textManager.GetInteraction("OPEN");
+                        itemName = textManager.GetObject(interaction.GetItemName());
                     }
                     Debug.Log("Interaction possible");
+                    interactionPrompt.text = action + " " + itemName;
                     interactionPrompt.enabled = true;
                 }
             } 

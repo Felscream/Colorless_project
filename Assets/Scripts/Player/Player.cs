@@ -64,27 +64,11 @@ public class Player : Character {
 
     public void ReceiveDamage(int damage)
     {
-        int tDamage = (int)Mathf.Ceil(damage);
-
-        currentHealth = currentHealth < 0 ? 0 : currentHealth - tDamage;
+        int tDamage = damage;
+        currentHealth -= tDamage;
+        currentHealth = currentHealth < 0 ? 0 : currentHealth;
         UpdateHealthUI();
     }
-    public void OnCollisionEnter(Collision col)
-    {
-        Item item = col.gameObject.GetComponent<Item>();
-        if (item != null && inventory != null)
-        {
-            switch (item.GetType().ToString())
-            {
-                case "LifeGemItem":
-                    LifeGemItem lifeGem = (LifeGemItem)item;
-                    inventory.CollectLifeGem(lifeGem.GetAmount());
-                    item.DestroyItem();
-                    break;
-            }
-        }
-    }
-
 
 	public void SetHealth(float value)
 	{
