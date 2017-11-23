@@ -38,7 +38,6 @@ public class Brawler : Enemy {
         aiRig.AI.Body = this.gameObject;
         entityRig = GetComponentInChildren<EntityRig>();
         entityRig.Entity.Form = this.gameObject;
-        Debug.Log("Initializing ai");
         aiRig.AI.Motor.Speed = speed;
         aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
         RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor

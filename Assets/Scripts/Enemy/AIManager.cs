@@ -61,7 +61,6 @@ public class AIManager : MonoBehaviour {
             for (int i = closeListCount; i < ceil; i++)
             {
                 int rand = Random.Range(0, enemiesList.Count);
-                Debug.Log("Rand : " + rand);
                 AIRig aiToAdd = temp[rand].GetComponentInChildren<AIRig>();
                 if (!closeList.Contains(aiToAdd))
                 {

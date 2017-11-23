@@ -230,7 +230,11 @@ public class PlayerActions : MonoBehaviour {
                 }
                 Debug.Log(interaction.gameObject.name);
             }
-
+            else if(interaction is Door)
+            {
+                Door door = (Door)interaction;
+                door.Open();
+            }
         }
         else
         {

@@ -12,6 +12,11 @@ public abstract class Interaction : MonoBehaviour {
     {
         return interactive;
     }
+
+    public void SetInteractive(bool value)
+    {
+        interactive = value;
+    }
     public string GetItemName()
     {
         return interactionName;

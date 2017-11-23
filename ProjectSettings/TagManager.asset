@@ -21,6 +21,7 @@ TagManager:
   - LifeGem
   - AIManager
   - LifeGemSpawn
+  - Door
   layers:
   - Default
   - TransparentFX
