@@ -30,7 +30,7 @@ public abstract class Enemy : Character
 
 		rb = GetComponent<Rigidbody>();
 		InitializeAI();
-		lifeGemlifeGemCreator = transform.Find("LifeGemsSpawn");
+		lifeGemlifeGemCreator = transform.Find("LifeGemSpawn");
 	}
 	// Update is called once per frame
 
