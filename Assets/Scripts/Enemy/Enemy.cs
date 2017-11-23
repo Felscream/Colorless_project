@@ -9,7 +9,7 @@ using RAIN.Entities;
 
 public abstract class Enemy : Character {
     [SerializeField]
-    protected int attackDamage;
+    protected int attackDamage, minLifeGemDropped, maxLifeGemDropped, minLifeGemValue, maxLifeGemValue;
     [SerializeField]
     protected string prefabName;
     [SerializeField]
@@ -19,7 +19,7 @@ public abstract class Enemy : Character {
     protected string prefabFolder = "Prefabs/Enemy";
     protected AIRig aiRig;
     protected EntityRig entityRig;
-
+    protected Transform lifeGemCreator;
     protected void Start()
     {
         transform.parent = null;
@@ -27,6 +27,7 @@ public abstract class Enemy : Character {
         aiManager.AddEnemy(gameObject);
         rb = GetComponent<Rigidbody>();
         InitializeAI();
+        lifeGemCreator = transform.Find("LifeGemSpawn");
 
     }
     // Update is called once per frame

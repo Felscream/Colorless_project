@@ -61,12 +61,13 @@ public class AIManager : MonoBehaviour {
             for (int i = closeListCount; i < ceil; i++)
             {
                 int rand = Random.Range(0, enemiesList.Count);
-                Debug.Log("Rand : " + rand);
                 AIRig aiToAdd = temp[rand].GetComponentInChildren<AIRig>();
                 if (!closeList.Contains(aiToAdd))
                 {
                     closeList.Add(enemiesList[rand].GetComponentInChildren<AIRig>());
                     closeList[i].AI.WorkingMemory.SetItem<bool>("CloseRange", true);
+                    closeList[i].AI.WorkingMemory.SetItem<float>("MaxDistance", 3.5f);
+
                 }
                 temp.Remove(temp[rand]);
             }

@@ -10,7 +10,6 @@ public class Brawler : Enemy {
     private float attackRechargeTime, attackRadius, attackZ, attackY;
     private float lastAttackTime;
     private bool attacking;
-
     protected new void Awake()
     {
         dead = false;
@@ -39,7 +38,6 @@ public class Brawler : Enemy {
         aiRig.AI.Body = this.gameObject;
         entityRig = GetComponentInChildren<EntityRig>();
         entityRig.Entity.Form = this.gameObject;
-        Debug.Log("Initializing ai");
         aiRig.AI.Motor.Speed = speed;
         aiRig.AI.Motor.CloseEnoughDistance = closeDistance;
         RAIN.Perception.Sensors.VisualSensor visualSensor = new RAIN.Perception.Sensors.VisualSensor
@@ -81,10 +79,15 @@ public class Brawler : Enemy {
     protected override IEnumerator Die()
     {
         yield return null;
+        lifeGemCreator.GetComponent<LifeGemSpawn>().SpawnLifeGem();
         aiManager.RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
 
+    public void DropLifeGems()
+    {
+        int lifeGemToDrop = Random.Range(minLifeGemDropped, maxLifeGemDropped);
+    }
     public float GetLastAttackTime()
     {
         return lastAttackTime;
