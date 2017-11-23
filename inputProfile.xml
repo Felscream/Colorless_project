@@ -271,6 +271,21 @@
       <axis>2</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
+    <AxisConfiguration name="Capacity">
+      <description />
+      <positive>Q</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>1</gravity>
+      <sensitivity>1</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
   </InputConfiguration>
   <InputConfiguration name="Windows_Gamepad">
     <AxisConfiguration name="Horizontal">
@@ -546,6 +561,21 @@
     <AxisConfiguration name="LatestWeapon">
       <description />
       <positive>JoystickButton3</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>1</gravity>
+      <sensitivity>1</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
+    <AxisConfiguration name="Capacity">
+      <description />
+      <positive>Q</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>

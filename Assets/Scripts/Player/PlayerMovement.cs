@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     private static PlayerMovement instance;
 	public float speed, jumpHeight;
 	[SerializeField]
-    private float stepOffset = 0.6f, jumpSpeedModifier, fallMultiplier, frameCounterX, frameCounterY, minimumY = -60f, maximumY = 60f;
+    private float stepOffset = 0.6f, jumpSpeedModifier, fallMultiplier, frameCounterX, frameCounterY, minimumY = -60f, maximumY = 60f, footstepLength;
     private float distToGround, rotationX = 0f, rotationY = 0f;
     private Quaternion xQuaternion;
     private Quaternion yQuaternion;
@@ -75,10 +75,10 @@ public class PlayerMovement : MonoBehaviour {
     {
         DynamicFall();
     }
+    
 
     public void Jump()
     {
-         Debug.Log("Jumping ");
          if (rb != null && IsGrounded())
          {
             rb.velocity = new Vector3(rb.velocity.x, Vector3.up.y * jumpHeight, rb.velocity.z);
@@ -91,17 +91,15 @@ public class PlayerMovement : MonoBehaviour {
         float ySpeed = (moveY < 0 && !IsGrounded()) ?  speed * jumpSpeedModifier :  speed;
 
         //impeding X movements when aerial
-        //float xSpeed = IsGrounded() ? speed : speed * jumpSpeedModifier;
 
         //LIMIT DIAGONAL SPEED
         Vector3 movement = Vector3.Normalize((new Vector3(moveX, 0f, moveY)));
-        //movement = transform.TransformDirection(movement);
         //not impeding X movements when aerial
         movement.x *= speed;
 
         movement.z *= ySpeed;
         transform.Translate(movement * Time.deltaTime);
-        //controller.Move(movement * Time.deltaTime);   
+        //footsteps.Pause();
     }
     public void Rotate(float rotX, float rotY, Transform cam)
     {
@@ -168,5 +166,6 @@ public class PlayerMovement : MonoBehaviour {
                 }
             }
         }
-    } 
+    }
+    
 }

@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Regeneration : MonoBehaviour, ICapacityItem
+public class Regeneration : ICapacityItem
 {
-	public Health healthScript;
-	public float efficiency = 1.0f;
+	public Player player;
+	public float efficiency = 10.0f;
 	private string id;
 	public float cost = 1.0f;
 	int TO_REPLACE_money = 10000;
 
-	public Regeneration(Health health, string name = "Regeneration")
+	public Regeneration(Player player, string name = "Regeneration")
 	{
-		healthScript = health;
+		this.player = player;
 		id = name;
 	}
 
 	public void DoEffect()
 	{
-		if (!healthScript) {
+		if (!player) {
 			Debug.Log("ERREUR RECUPERATION HEALTH SCRIPT");
 		}
-		healthScript.health = Mathf.Min(healthScript.health + efficiency * Time.deltaTime, healthScript.maxHealth);
+		Debug.Log("REGEN");
+
+		player.Heal(efficiency * Time.deltaTime);
 		TO_REPLACE_money -= (int) (cost * Time.deltaTime);
 	}
 

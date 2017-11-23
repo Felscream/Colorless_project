@@ -4,13 +4,34 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour {
 
-    [SerializeField]
-    protected int health;
-
-    protected int currentHealth;
+	[SerializeField]
+	private int baseHealth, maxHealth;
+	[SerializeField]
+	protected float currentHealth;
     protected bool dead;
 
-    protected void CheckDeath()
+	public int BaseHealth
+	{
+		get
+		{
+			return baseHealth;
+		}
+	}
+
+	public int MaxHealth
+	{
+		get
+		{
+			return maxHealth;
+		}
+
+		set
+		{
+			maxHealth = value;
+		}
+	}
+
+	protected void CheckDeath()
     {
         if (currentHealth <= 0)
         {
@@ -21,12 +42,14 @@ public abstract class Character : MonoBehaviour {
     // Use this for initialization
     protected void Awake () {
         dead = false;
-        currentHealth = health;
+        currentHealth = BaseHealth;
+        MaxHealth = BaseHealth;
+		
 	}
 
     protected abstract IEnumerator Die();
 
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return currentHealth;
     }

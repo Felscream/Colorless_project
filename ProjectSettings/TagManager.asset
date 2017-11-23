@@ -19,6 +19,9 @@ TagManager:
   - Crosshair
   - InteractionPrompt
   - LifeGem
+  - AIManager
+  - LifeGemSpawn
+  - Door
   layers:
   - Default
   - TransparentFX

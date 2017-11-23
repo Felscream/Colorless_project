@@ -5,49 +5,70 @@ using UnityEngine;
 public class LifeGemItem : Item {
     private Inventory playerInventory;
     [SerializeField]
-    protected string id, prefabName;
+    private string id, prefabName;
     [SerializeField]
-    protected int amount = 0;
-
+    private int amount;
     [SerializeField]
-    private int rotationX;
-    [SerializeField]
-    private int rotationY;
-    [SerializeField]
-    private int rotationZ;
-
+    private float speed;
     private Vector3 playerPosition;
     private bool moving = false;
+    private float distToGround;
+    private Rigidbody rb;
     // Update is called once per frame
 
     private void Start()
     {
-        playerPosition = Camera.main.transform.position;
+        playerPosition = Player.GetInstance().transform.position;
+        distToGround = GetComponent<Collider>().bounds.extents.y;
+        rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
-        transform.Rotate(new Vector3(rotationX, rotationY, rotationZ) * Time.deltaTime);
         if (moving)
         {
+            playerPosition = Player.GetInstance().transform.position;
             MoveTowardPlayer();
         }
-    }
-    public int GetAmount()
-    {
-        return amount;
+        if (IsGrounded())
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.Sleep();
+        }
     }
 
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f, LayerMask.GetMask("Obstacle"));
+    }
     public void MoveTowardPlayer()
     {
         if(playerPosition != null)
         {
-            playerPosition = Camera.main.transform.position;
-            Vector3 heading = (playerPosition - transform.position).normalized;
-            transform.Translate(heading * 8 * Time.deltaTime);
+            Vector3 heading = Vector3.Normalize((playerPosition - transform.position));
+            transform.Translate(heading * speed * Time.deltaTime);
         }
     }
     public void EnableMove()
     {
         moving = true;
+    }
+    public int Amount
+    {
+        get { return amount; }
+        set { amount = value; }
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Inventory inventory = Inventory.GetInstance();
+            if (inventory != null)
+            {
+                inventory.CollectLifeGem(Amount);
+                DestroyItem();
+            }
+        }
     }
 }
