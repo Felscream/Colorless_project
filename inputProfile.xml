@@ -301,6 +301,21 @@
       <axis>0</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
+    <AxisConfiguration name="Melee">
+      <description />
+      <positive>V</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>1</gravity>
+      <sensitivity>1</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
   </InputConfiguration>
   <InputConfiguration name="Windows_Gamepad">
     <AxisConfiguration name="Horizontal">
@@ -606,6 +621,21 @@
     <AxisConfiguration name="Regeneration">
       <description />
       <positive>Joystick1Button3</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>1</gravity>
+      <sensitivity>1</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
+    <AxisConfiguration name="Melee">
+      <description />
+      <positive>JoystickButton5</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
