@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Colorise : MonoBehaviour {
-	private Renderer rend;
+	private MeshRenderer rend;
 	// Use this for initialization
 	void Start () {
-		rend = GetComponent<Renderer>();
+		rend = GetComponent<MeshRenderer>();
 	}
 
 	// Update is called once per frame

@@ -48,7 +48,9 @@ public class EnemySpawner : MonoBehaviour {
     }
     private void Start () {
         col = GetComponent<Collider>();
-        if(col == null)
+		room.GetComponent<ColoriseRoom>().IncreaseEnemyQuantity(enemyQuantity);
+
+		if (col == null)
         {
             Debug.Log("No collider attached");
         }
@@ -79,6 +81,6 @@ public class EnemySpawner : MonoBehaviour {
 
 	public float GetColorRatio()
 	{
-		return 1f/enemyQuantity;
+		return 1f/room.GetComponent<ColoriseRoom>().GetEnemyQuantity();
 	}
 }
