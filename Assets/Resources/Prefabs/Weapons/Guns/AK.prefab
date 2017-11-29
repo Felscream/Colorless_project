@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc30a38961b146740a05c9d94b3975a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireRate: 1
   reloadTime: 3.8
   verticalRecoilIncrease: 1
   horizontalRecoilIncrease: 1

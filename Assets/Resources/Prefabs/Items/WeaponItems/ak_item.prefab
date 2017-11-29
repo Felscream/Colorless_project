@@ -2465,7 +2465,7 @@ MonoBehaviour:
   interactionName: SPHERE_GUN
   interactive: 1
   id: ak-47
-  weaponPrefabName: AK
+  weaponPrefabName: Ak_object
   clipAmmo: 100
   maxClipAmmo: 100
   inventoryAmmo: 100
