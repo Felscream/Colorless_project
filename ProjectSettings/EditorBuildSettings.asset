@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/fpsElements.unity
     guid: 962f9a34a0702f94db75c28549f4a8d5
+  - enabled: 1
+    path: Assets/Scenes/laboratory.unity
+    guid: fb1da2ba5b2661f41a5dd1e14d1dbc3d
