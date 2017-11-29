@@ -17,19 +17,24 @@ public class Brawler : Enemy {
         lastAttackTime = -attackRechargeTime;
     }
 
-    public void Attack()
+    public IEnumerator Attack()
     {
         Transform self = GetComponent<Transform>();
+        animator.SetBool("attack", true);
+        
         Debug.Log("Winding up attack");
         Debug.Log("Dealing damage");
         Vector3 detectorLocation = self.position + new Vector3(0, attackY, attackZ);
         Collider[] detector = Physics.OverlapSphere(detectorLocation, attackRadius, LayerMask.GetMask("Player"));
+        Debug.Log(detector.Length);
         if(detector.Length > 0)
         {
             Player.GetInstance().ReceiveDamage(attackDamage);
 
         }
         lastAttackTime = Time.time;
+        yield return new WaitForSeconds(1.0f);
+        animator.SetBool("attack", false);
     }
 
     protected override void InitializeAI()
@@ -78,7 +83,8 @@ public class Brawler : Enemy {
     }
     protected override IEnumerator Die()
     {
-        yield return null;
+        animator.SetBool("dead", true);
+        yield return new WaitForSeconds(2.0f);
         lifeGemCreator.GetComponent<LifeGemSpawn>().SpawnLifeGem();
         aiManager.RemoveEnemy(gameObject);
         Destroy(gameObject);

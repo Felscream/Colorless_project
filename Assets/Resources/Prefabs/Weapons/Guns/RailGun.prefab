@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4366109115808682}
   - component: {fileID: 33854095248050326}
   - component: {fileID: 23427178723712516}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Scope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114461017545643916}
   - component: {fileID: 120254670107241120}
   - component: {fileID: 136247797700179290}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: RailGun
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4821491809616224}
   - component: {fileID: 33636116837004512}
   - component: {fileID: 23840300155378794}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Scope Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4812430937635918}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: BulletSpawn
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4661567355072870}
   - component: {fileID: 33026706368121664}
   - component: {fileID: 23198459113434426}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ LineRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 0, g: 1, b: 0.08965516, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

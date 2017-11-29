@@ -24,13 +24,15 @@ public abstract class Enemy : Character
 	protected Transform lifeGemCreator;
 	private ColoriseRoom coloriseRoom;
 	private float colorRatio;
+    protected Animator animator;
 
 
-	public void Start()
+    public void Start()
 	{
-		coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
-		colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
-		transform.parent = null;
+        //coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
+        //colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
+        animator = GetComponent<Animator>();
+        transform.parent = null;
 		aiManager = GameObject.FindGameObjectWithTag("AIManager").GetComponent<AIManager>();
 		aiManager.AddEnemy(gameObject);
 		rb = GetComponent<Rigidbody>();
@@ -49,7 +51,7 @@ public abstract class Enemy : Character
 
 	private void OnDestroy()
 	{
-		coloriseRoom.ColoriseRoomTexture(colorRatio);
+		//coloriseRoom.ColoriseRoomTexture(colorRatio);
 
 		foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
 		Debug.Log(gameObject.transform.name + " killed");

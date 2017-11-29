@@ -24,7 +24,7 @@ public class AttackPlayerBrawler : RAINAction
         }
         else
         {
-            self.Attack();
+            self.StartCoroutine(self.Attack());
             return ActionResult.SUCCESS;
         }
         

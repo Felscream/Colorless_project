@@ -1812,19 +1812,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc30a38961b146740a05c9d94b3975a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 5
   reloadTime: 3.8
-  verticalRecoilIncrease: 1
-  horizontalRecoilIncrease: 1
+  verticalRecoilIncrease: 3
+  horizontalRecoilIncrease: 5
   gunPrefabFolder: Prefabs/Weapons/Guns
   prefab: AK
   weaponName: AK
   weaponRange: 250
-  damage: 5
-  startingBulletSpread: 2
-  maxBulletSpread: 2
-  bulletSpreadRatePerSecond: 2
-  bulletSpreadRecovery: 2
+  damage: 7
+  startingBulletSpread: 0
+  maxBulletSpread: 1
+  bulletSpreadRatePerSecond: 1
+  bulletSpreadRecovery: 1
 --- !u!120 &120748192021549496
 LineRenderer:
   m_ObjectHideFlags: 1
