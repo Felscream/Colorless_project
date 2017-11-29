@@ -16,11 +16,6 @@ public class ColoriseRoom : MonoBehaviour {
 
 			foreach (Colorise element in colorElements)
 			{
-				if (!element)
-				{
-					Debug.Log("Je n'existe pas");
-				}
-				Debug.Log("je colorie  " + element.name);
 				element.SetRatioColor(1.0f);
 			}
 
