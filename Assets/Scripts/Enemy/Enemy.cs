@@ -29,8 +29,8 @@ public abstract class Enemy : Character
 
     public void Start()
 	{
-        //coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
-        //colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
+        coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
+        colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
         animator = GetComponent<Animator>();
         transform.parent = null;
 		aiManager = GameObject.FindGameObjectWithTag("AIManager").GetComponent<AIManager>();
@@ -51,7 +51,7 @@ public abstract class Enemy : Character
 
 	private void OnDestroy()
 	{
-		//coloriseRoom.ColoriseRoomTexture(colorRatio);
+		coloriseRoom.ColoriseRoomTexture(colorRatio);
 
 		foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
 		Debug.Log(gameObject.transform.name + " killed");

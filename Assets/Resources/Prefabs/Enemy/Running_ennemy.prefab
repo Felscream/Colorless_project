@@ -1611,7 +1611,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007052324596334}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -40.57, y: 1.25, z: 19.87}
+  m_LocalPosition: {x: 49.71927, y: 5.2913675e-17, z: -34.76604}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4328857404123700}
@@ -2194,7 +2194,7 @@ MonoBehaviour:
       includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_useFixedUpdate>False</_useFixedUpdate><_ai
       reference="1"><_isActive>True</_isActive><_body sceneobject="6b15b1a0-bab0-4520-9f08-7d558c6ab601"></_body><_workingMemory
       type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems><element0 reference="3"><Key>Player</Key><ValueType>UnityEngine.GameObject</ValueType><Value
-      type="UnityEngine.GameObject" sceneobject="476a9e14-a96d-45b4-84d6-07f9c3a989a9"></Value></element0><element1
+      type="UnityEngine.GameObject" sceneobject="10f70408-d2c5-4cf1-be94-09c452fc2864"></Value></element0><element1
       reference="4"><Key>MaxDistance</Key><ValueType>System.Single</ValueType><Value
       type="System.Single">11</Value></element1><element2 reference="5"><Key>AttackRange</Key><ValueType>System.Single</ValueType><Value
       type="System.Single">4</Value></element2><element3 reference="6"><Key>AttackReload</Key><ValueType>System.Single</ValueType><Value
