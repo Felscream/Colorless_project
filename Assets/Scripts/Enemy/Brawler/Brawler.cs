@@ -30,7 +30,7 @@ public class Brawler : Enemy {
         if(detector.Length > 0)
         {
             Player.GetInstance().ReceiveDamage(attackDamage);
-
+             
         }
         lastAttackTime = Time.time;
         yield return new WaitForSeconds(1.0f);
