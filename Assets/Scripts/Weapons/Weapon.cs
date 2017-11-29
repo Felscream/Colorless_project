@@ -21,12 +21,13 @@ public abstract class Weapon : MonoBehaviour{
     protected bool isReloading;
     protected WeaponItemData weaponData;
     protected Inventory playerInventory;
-
+    protected Animator animator;
 
     public void Awake()
     {
         
         prefab = GetComponent<Transform>().name;
+        
         Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();
         foreach (Transform t in transforms)
         {
@@ -45,6 +46,11 @@ public abstract class Weapon : MonoBehaviour{
     public void Start()
     {
         cam = Camera.main;
+        animator = GetComponent<Animator>();
+        if (!animator)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
         weaponData = playerInventory.FindWeaponDataByName(weaponName);
         if (weaponData == null)
         {
@@ -86,6 +92,7 @@ public abstract class Weapon : MonoBehaviour{
         {
             int ammoSpent = weaponData.GetMaxClipAmmo() - weaponData.GetClipAmmo();
             isReloading = true;
+            animator.SetBool("reload", true);
             Debug.Log("Reloading");
             int clipAmmo = (weaponData.GetMaxClipAmmo() <= currentTotalAmmo + weaponData.GetClipAmmo()) ? weaponData.GetMaxClipAmmo() : (weaponData.GetClipAmmo() + currentTotalAmmo) % weaponData.GetMaxClipAmmo();
             yield return new WaitForSeconds(reloadTime);
@@ -97,6 +104,7 @@ public abstract class Weapon : MonoBehaviour{
             weaponData.SetClipAmmo(clipAmmo);
             weaponData.ChangeInventoryAmmo(-ammoSpent);
             Debug.Log("Done reloading");
+            animator.SetBool("reload", false);
             UpdateAmmoInfo();
 
         }
