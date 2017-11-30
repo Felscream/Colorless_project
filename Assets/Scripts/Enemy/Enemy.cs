@@ -10,8 +10,8 @@ using RAIN.Entities;
 
 public abstract class Enemy : Character
 {
-	[SerializeField]
-	protected int attackDamage, minLifeGemDropped, maxLifeGemDropped, minLifeGemValue, maxLifeGemValue;
+    [SerializeField]
+    protected int attackDamage;
 	[SerializeField]
 	protected string prefabName;
 	[SerializeField]
@@ -26,13 +26,12 @@ public abstract class Enemy : Character
 	private float colorRatio;
     protected Animator animator;
 
-
-    public void Start()
+	public void Start()
 	{
-        coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
-        colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
+		coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
+		colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
         animator = GetComponent<Animator>();
-        transform.parent = null;
+		transform.parent = null;
 		aiManager = GameObject.FindGameObjectWithTag("AIManager").GetComponent<AIManager>();
 		aiManager.AddEnemy(gameObject);
 		rb = GetComponent<Rigidbody>();
@@ -65,12 +64,6 @@ public abstract class Enemy : Character
 
 		Debug.Log("Enemy " + gameObject.transform.name + " damaged for " + tDamage + " | health : " + currentHealth);
 
-		/*if(colorChange != null)
-        {
-            float greenPercentage = currentHealth / health;
-            //Debug.Log(greenPercentage);
-            colorChange.ChangeColor(greenPercentage);
-        }*/
 		CheckDeath();
 	}
 

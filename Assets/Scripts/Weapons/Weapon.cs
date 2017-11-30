@@ -94,8 +94,10 @@ public abstract class Weapon : MonoBehaviour{
             isReloading = true;
             animator.SetBool("reload", true);
             Debug.Log("Reloading");
-            int clipAmmo = (weaponData.GetMaxClipAmmo() <= currentTotalAmmo + weaponData.GetClipAmmo()) ? weaponData.GetMaxClipAmmo() : (weaponData.GetClipAmmo() + currentTotalAmmo) % weaponData.GetMaxClipAmmo();
+            //Debug.Log(m_CurrentClipInfo.Length);
             yield return new WaitForSeconds(reloadTime);
+            int clipAmmo = (weaponData.GetMaxClipAmmo() <= currentTotalAmmo + weaponData.GetClipAmmo()) ? weaponData.GetMaxClipAmmo() : (weaponData.GetClipAmmo() + currentTotalAmmo) % weaponData.GetMaxClipAmmo();
+            
             if (this is HitScan)
             {
                 HitScan temp = (HitScan)this;

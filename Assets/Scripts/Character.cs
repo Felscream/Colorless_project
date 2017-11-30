@@ -33,7 +33,7 @@ public abstract class Character : MonoBehaviour {
 
 	protected void CheckDeath()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dead)
         {
             dead = true;
             StartCoroutine(Die());

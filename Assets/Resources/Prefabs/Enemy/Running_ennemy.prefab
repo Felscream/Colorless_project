@@ -1511,7 +1511,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726179056306316}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -25.3, y: -1.5985, z: -5.04}
+  m_LocalPosition: {x: 0.06, y: 1.13, z: 0.14}
   m_LocalScale: {x: 0.15000005, y: 0.14999999, z: 0.15000005}
   m_Children: []
   m_Father: {fileID: 4450177110757508}
@@ -1610,8 +1610,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007052324596334}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 49.71927, y: 5.2913675e-17, z: -34.76604}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 37.1, y: 2.8874708e-18, z: -0.26008025}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4328857404123700}
@@ -2227,26 +2227,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49227c53bb9392949bbfb6cec7eba2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 150
-  maxHealth: 150
-  currentHealth: 150
+  baseHealth: 1
+  maxHealth: 1
+  currentHealth: 1
   attackDamage: 20
-  minLifeGemDropped: 1
-  maxLifeGemDropped: 3
-  minLifeGemValue: 20
-  maxLifeGemValue: 43
   prefabName: Enemy
   visualSensorHorizontalAngle: 40
   visualSensorVerticalAngle: 65
   visualSensorYOffset: 1
-  visualSensorRange: 4
+  visualSensorRange: 7
   speed: 7
   stepOffset: 0.8
   closeDistance: 2
   attackRechargeTime: 5
-  attackRadius: 7.5
+  attackRadius: 10
   attackZ: 6
-  attackY: 2
+  attackY: 0
 --- !u!114 &114684286859724328
 MonoBehaviour:
   m_ObjectHideFlags: 1
