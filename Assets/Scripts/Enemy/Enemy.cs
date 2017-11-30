@@ -10,8 +10,8 @@ using RAIN.Entities;
 
 public abstract class Enemy : Character
 {
-	[SerializeField]
-	protected int attackDamage, minLifeGemDropped, maxLifeGemDropped, minLifeGemValue, maxLifeGemValue;
+    [SerializeField]
+    protected int attackDamage;
 	[SerializeField]
 	protected string prefabName;
 	[SerializeField]
@@ -28,8 +28,8 @@ public abstract class Enemy : Character
 
 	public void Start()
 	{
-		coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
-		colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
+		//coloriseRoom = GetComponentInParent<EnemySpawner>().GetRoom();
+		//colorRatio = GetComponentInParent<EnemySpawner>().GetColorRatio();
 		transform.parent = null;
 		aiManager = GameObject.FindGameObjectWithTag("AIManager").GetComponent<AIManager>();
 		aiManager.AddEnemy(gameObject);
@@ -49,7 +49,7 @@ public abstract class Enemy : Character
 
 	private void OnDestroy()
 	{
-		coloriseRoom.ColoriseRoomTexture(colorRatio);
+		//coloriseRoom.ColoriseRoomTexture(colorRatio);
 
 		foreach (Transform child in gameObject.transform) { Destroy(child.gameObject); };
 		Debug.Log(gameObject.transform.name + " killed");

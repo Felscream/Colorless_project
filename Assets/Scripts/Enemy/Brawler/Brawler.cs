@@ -86,7 +86,7 @@ public class Brawler : Enemy {
 
     public void DropLifeGems()
     {
-        int lifeGemToDrop = Random.Range(minLifeGemDropped, maxLifeGemDropped);
+        //int lifeGemToDrop = Random.Range(minLifeGemDropped, maxLifeGemDropped);
     }
     public float GetLastAttackTime()
     {
