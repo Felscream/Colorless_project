@@ -135,6 +135,10 @@ public class PlayerActions : MonoBehaviour {
 		inventory.DoCapacity();
 	}
 
+    public void Regenerate()
+    {
+        inventory.Regenerate();
+    }
 
     public IEnumerator EquipLatestWeapon()
     {

@@ -74,12 +74,12 @@ public class Brawler : Enemy {
             AspectName = "Enemy",
             IsActive = true,
             MountPoint = gameObject.transform,
-            Position = Vector3.zero,
-            VisualSize = 4
+            Position = new Vector3(0,1,0),
+            VisualSize = 1
         };
         aiRig.AI.Senses.AddSensor(visualSensor);
         aiRig.AI.Senses.AddSensor(enemySensor);
-        entityRig.Entity.AddAspect(visualAspect);
+        //entityRig.Entity.AddAspect(visualAspect);
     }
     protected override IEnumerator Die()
     {

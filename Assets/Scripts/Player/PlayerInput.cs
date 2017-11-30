@@ -195,6 +195,11 @@ public class PlayerInput : MonoBehaviour {
 			pa.DoCapacity();
 		}
 
+        if (InputManager.GetButton("Regeneration"))
+        {
+            pa.DoCapacity();
+        }
+
         //INTERACTIONS
         if (InputManager.GetButtonDown("Submit"))
         {

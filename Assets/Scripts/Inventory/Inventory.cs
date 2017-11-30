@@ -249,10 +249,20 @@ public class Inventory : MonoBehaviour {
 		return capacities.Find(x => (x.GetId() == id));
 	}
 
+    public void Regenerate()
+    {
+        capacities[0].DoEffect();
+    }
 	
     public int GetLifeGem()
     {
         return lifeGem;
+    }
+
+    public void SetLifeGem(int value)
+    {
+        lifeGem = value;
+        UpdateLifeGemText();
     }
 
 	public void DoCapacity()

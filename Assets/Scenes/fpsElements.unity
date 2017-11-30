@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4425199, g: 0.48468643, b: 0.53412515, a: 1}
+  m_IndirectSpecularColor: {r: 0.44251963, g: 0.48468554, b: 0.534124, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -164,12 +164,12 @@ Prefab:
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 366
       objectReference: {fileID: 0}
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 56.5
+      value: 206
       objectReference: {fileID: 0}
     - target: {fileID: 224528368499449656, guid: 2b393c8eeb5fbeb4a8d55768363a0f04,
         type: 2}
@@ -1683,41 +1683,6 @@ Prefab:
     - target: {fileID: 4450177110757508, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4328857404123700, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4328857404123700, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4328857404123700, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450177110757508, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4450177110757508, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 135541087481025156, guid: 5e79d0d21a548f74d9ff46af4701a4e6,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114472441508791106, guid: 5e79d0d21a548f74d9ff46af4701a4e6,
-        type: 2}
-      propertyPath: attackY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114472441508791106, guid: 5e79d0d21a548f74d9ff46af4701a4e6,
-        type: 2}
-      propertyPath: attackRadius
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e79d0d21a548f74d9ff46af4701a4e6, type: 2}

@@ -8,7 +8,7 @@ public class Regeneration : ICapacityItem
 	public Player player;
 	public float efficiency = 10.0f;
 	private string id;
-	public float cost = 1.0f;
+	public float cost = 80.0f;
 	int TO_REPLACE_money = 10000;
 
 	public Regeneration(Player player, string name = "Regeneration")
@@ -19,14 +19,23 @@ public class Regeneration : ICapacityItem
 
 	public void DoEffect()
 	{
+        int lifeGem = player.GetComponent<Inventory>().GetLifeGem();
 		if (!player) {
 			Debug.Log("ERREUR RECUPERATION HEALTH SCRIPT");
 		}
 		Debug.Log("REGEN");
+        if(lifeGem > 0 && player.GetCurrentHealth() < player.MaxHealth)
+        {
+            player.Heal(efficiency * Time.deltaTime);
+            lifeGem -= (int)(cost * Time.deltaTime);
+            if(lifeGem < 0){
+                lifeGem = 0;
+            }
+        }
+        Debug.Log(lifeGem);
+        player.GetComponent<Inventory>().SetLifeGem(lifeGem);
 
-		player.Heal(efficiency * Time.deltaTime);
-		TO_REPLACE_money -= (int) (cost * Time.deltaTime);
-	}
+    }
 
 	public string GetId()
 	{
