@@ -7,7 +7,6 @@ public class Player : Character {
     private static Player instance;
     private Inventory inventory;
     private Text playerHealthUI;
-	[SerializeField]
 
 
 	protected override IEnumerator Die()
