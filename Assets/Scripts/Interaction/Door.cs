@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : Interaction {
 
     private Animator animator = null;
-
+	
     private void Start()
     {
         animator = GetComponent<Animator>();
