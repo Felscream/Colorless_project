@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4426712212877914}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 121
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4319628631727206}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 134
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4673286532192764}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 108
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4690262105260354}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 126
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4142297878262652}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 138
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4813668469761948}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 310
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4220150143383738}
   - component: {fileID: 95501187161437284}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: AK
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4089533508127056}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 136
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4312582466580664}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4674493237700902}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 142
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4414065011835612}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 303
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4690206097815114}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 140
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4484807588143318}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 203
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4436755368526686}
   - component: {fileID: 114043944955697548}
   - component: {fileID: 120789189294519074}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ak_object
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4434557619584132}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 141
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4093062962352088}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 144
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4580436933814092}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4421841473551352}
   - component: {fileID: 137377723176547026}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SMDImport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4377898958523790}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 301
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4947452720161572}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 112
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4453767922054562}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 143
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4817487290208322}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Release
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4936425377769884}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 309
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4577549487870462}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4887818935984442}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 109
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4138021378220130}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 304
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4654192055956844}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 113
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4094255801546224}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4957829593171880}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 120
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4133842685053068}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 128
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4405947050690856}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Parent_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4144261512710132}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4986171798533074}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BulletSpawn
   m_TagString: BulletSpawn
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4535708737943778}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 311
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4755315089817998}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Arm_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4256732455549606}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 145
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4064854168369096}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 133
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4719930364617684}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 201
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4357063159976100}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 307
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4457347446098056}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 302
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4576839695056250}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 308
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4881387074514220}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 125
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4475997463762324}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 305
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4671410167565812}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 102
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4024018441063338}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 104
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4794314843197372}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Arm_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4030233622797488}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +728,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4823744845307132}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 124
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4401973845564362}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 131
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4607505524512588}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 137
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4879550238810142}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 123
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +788,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4963995403223580}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 115
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4784907912785196}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +818,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4376997824852866}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 107
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4458288962886302}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 117
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4667884380938162}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 129
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4598705060006384}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 105
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +878,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4453720465466862}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 116
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,7 +893,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4619375190937780}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 111
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +908,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4797507599275590}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 103
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4522019964158196}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 119
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +938,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4018071022571040}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Parent_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 5
-  reloadTime: 3.8
+  reloadTime: 3
   verticalRecoilIncrease: 3
   horizontalRecoilIncrease: 5
   gunPrefabFolder: Prefabs/Weapons/Guns

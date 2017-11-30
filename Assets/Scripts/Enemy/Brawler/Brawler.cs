@@ -84,8 +84,8 @@ public class Brawler : Enemy {
     protected override IEnumerator Die()
     {
         animator.SetBool("dead", true);
-        yield return new WaitForSeconds(2.0f);
         lifeGemCreator.GetComponent<LifeGemSpawn>().SpawnLifeGem();
+        yield return new WaitForSeconds(2.0f);
         aiManager.RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
