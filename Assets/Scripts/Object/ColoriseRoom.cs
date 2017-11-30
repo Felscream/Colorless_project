@@ -6,12 +6,21 @@ public class ColoriseRoom : MonoBehaviour {
 
 	public Colorise[] colorElements;
 	public float TestRatio = 0.1f;
-	void Start()
+	private int totalEnemyQuantity = 0;
+	private bool init = false;
+	void FixedUpdate()
 	{
-		colorElements = GetComponentsInChildren<Colorise>();
+		if (!init)
+		{
+			colorElements = GetComponentsInChildren<Colorise>();
 
-		foreach (Colorise element in colorElements)
-			element.SetRatioColor(1);
+			foreach (Colorise element in colorElements)
+			{
+				element.SetRatioColor(1.0f);
+			}
+
+			init = true;
+		}
 	}
 
 	// Update is called once per frame
@@ -27,5 +36,14 @@ public class ColoriseRoom : MonoBehaviour {
 	void Update()
 	{
 		//ColoriseRoomTexture(TestRatio * Time.deltaTime);
+	}
+
+	public void IncreaseEnemyQuantity(int quantity) {
+		totalEnemyQuantity += quantity;
+	}
+
+	public int GetEnemyQuantity()
+	{
+		return totalEnemyQuantity;
 	}
 }
