@@ -71,13 +71,13 @@ public abstract class HitScan : Weapon {
             float accuracy = spreading / maxBulletSpread;
             Vector3 randomOffset = new Vector3()
             {
-                x = Random.Range(-(0.1f * accuracy), 0.1f * accuracy),
-                y = Random.Range(-(0.1f * accuracy), 0.1f * accuracy),
+                x = Random.Range(-(0.1f), 0.1f ),
+                y = Random.Range(-(0.1f), 0.1f ),
                 z = 0
             };
-            dir += randomOffset;
+            //dir += randomOffset;
             // Check if our raycast has hit anything
-            if (Physics.Raycast(rayOrigin, dir, out hit, weaponRange, LayerMask.GetMask("Obstacle","Enemy","Interaction")))
+            if (Physics.Raycast(rayOrigin, dir, out hit, weaponRange, LayerMask.GetMask("Obstacle","Enemy")))
             {
                 laserLine.SetPosition(1, hit.point);
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
