@@ -5,14 +5,17 @@ using UnityEngine;
 public class ColoriseRoom : MonoBehaviour {
 
 	public Colorise[] colorElements;
+	public Door[] doorElements;
 	public float TestRatio = 0.1f;
 	private int totalEnemyQuantity = 0;
 	private bool init = false;
+	private int actualProgression = 0;
 	void FixedUpdate()
 	{
 		if (!init)
 		{
 			colorElements = GetComponentsInChildren<Colorise>();
+			doorElements = GetComponentsInChildren<Door>();
 
 			foreach (Colorise element in colorElements)
 			{
@@ -29,6 +32,17 @@ public class ColoriseRoom : MonoBehaviour {
 		{
 			Debug.Log("Corolorise Element: " + progressionValue);
 			element.ColoriseTexture(progressionValue);
+			
+		}
+		actualProgression++;
+		Debug.Log("COLOR: " + actualProgression + " / " + totalEnemyQuantity);
+
+		if (actualProgression >= totalEnemyQuantity)
+		{
+			foreach (Door door in doorElements)
+			{
+				door.SetInteractive(true);
+			}
 		}
 
 	}
