@@ -9,7 +9,13 @@ public class PlayerInput : MonoBehaviour {
 
     [SerializeField]
     private float mouseSensibility, controllerSensibility;
-    private Transform camTransform;
+	[SerializeField]
+	private GameObject menuObject;
+	[SerializeField]
+	private SkillMenu menu;
+	[SerializeField]
+	bool isPause = false;
+	private Transform camTransform;
     private Player player;
     private PlayerMovement mv;
     private PlayerActions pa;
@@ -50,11 +56,31 @@ public class PlayerInput : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-        
-        if (ObjectsInstantiated() && !player.IsDead())
+
+		if (false)
+		{
+			if (isPause)
+			{
+				menuObject.SetActive(false);
+				isPause = false;
+			}
+			else
+			{
+				menuObject.SetActive(true);
+				isPause = true;
+			}
+		}
+
+
+        if (ObjectsInstantiated() && !player.IsDead() && !isPause)
         {
             GetPlayerControlInput();
         }
+		//redondant mais plus clair
+		else if(ObjectsInstantiated() && !player.IsDead() && isPause)
+		{
+			GetMenuControlInput();
+		}
         else
         {
             if (player.IsDead())
@@ -90,6 +116,9 @@ public class PlayerInput : MonoBehaviour {
                 break;
         }
     }
+
+
+
 
     private bool ObjectsInstantiated()
     {
@@ -153,13 +182,80 @@ public class PlayerInput : MonoBehaviour {
         return false;
     }
 
-    
 
-    
-    /**************************
+	/**************************
+    ****     GET INPUT Menu     ***
+    ***************************/
+	public void GetMenuControlInput()
+	{
+
+		if (InputManager.GetAxisRaw("Vertical") == 1)
+		{
+			if (menu.currentSkill.upLinks)
+			{
+				if(menu.currentSkill.upLinks.destination == menu.currentSkill)
+				{
+					menu.SetCurrentSkill(menu.currentSkill.upLinks.origin);
+				}
+				else
+				{
+					menu.SetCurrentSkill(menu.currentSkill.upLinks.destination);
+				}
+			}
+		}
+		if (InputManager.GetAxisRaw("Vertical") == -1)
+		{
+			if (menu.currentSkill.downLinks)
+			{
+				if (menu.currentSkill.downLinks.destination == menu.currentSkill)
+				{
+					menu.SetCurrentSkill(menu.currentSkill.downLinks.origin);
+				}
+				else
+				{
+					menu.SetCurrentSkill(menu.currentSkill.downLinks.destination);
+				}
+			}
+		}
+		if (InputManager.GetAxisRaw("Horizontal") == 1)
+		{
+			if (menu.currentSkill.rightLinks)
+			{
+				if (menu.currentSkill.rightLinks.destination == menu.currentSkill)
+				{
+					menu.SetCurrentSkill(menu.currentSkill.rightLinks.origin);
+				}
+				else
+				{
+					menu.SetCurrentSkill(menu.currentSkill.rightLinks.destination);
+				}
+			}
+		}
+		if (InputManager.GetAxisRaw("Horizontal") == -1)
+		{
+			if (menu.currentSkill.leftLinks)
+			{
+				if (menu.currentSkill.leftLinks.destination == menu.currentSkill)
+				{
+					menu.SetCurrentSkill(menu.currentSkill.leftLinks.origin);
+				}
+				else
+				{
+					menu.SetCurrentSkill(menu.currentSkill.leftLinks.destination);
+				}
+			}
+		}
+		if (InputManager.GetButtonDown("Jump"))
+		{
+			menu.currentSkill.Unlock();
+		}
+	}
+
+
+	/**************************
     ****     GET INPUT      ***
     ***************************/
-    public void GetPlayerControlInput()
+	public void GetPlayerControlInput()
     {
         //WEAPON RELATED ACTIONS
         if (pa.HasWeapon())
@@ -274,7 +370,7 @@ public class PlayerInput : MonoBehaviour {
         //MOVING
         mv.Move(movementX, movementY);
 
-        if (InputManager.GetButtonDown("Jump"))
+        if (InputManager.GetButtonDown("Jump") && !isPause)
         {
             mv.Jump();
         }

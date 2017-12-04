@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SkillMenu : MonoBehaviour {
 	[SerializeField]
 	private SkillButton firstSkill;
-	private SkillButton currentSkill;
+	public SkillButton currentSkill;
 
 	public Text lateralTitle;
 	public Text lateralDescription;
@@ -17,6 +17,7 @@ public class SkillMenu : MonoBehaviour {
 	{
 		currentSkill = firstSkill;
 		currentSkill.SelectSkill();
+		currentSkill.MakeAvailable();
 		FillLateralPanel();
 
 	}

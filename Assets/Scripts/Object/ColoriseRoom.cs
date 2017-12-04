@@ -30,12 +30,12 @@ public class ColoriseRoom : MonoBehaviour {
 	public void ColoriseRoomTexture (float progressionValue) {
 		foreach (Colorise element in colorElements)
 		{
-			Debug.Log("Corolorise Element: " + progressionValue);
+			//Debug.Log("Corolorise Element: " + progressionValue);
 			element.ColoriseTexture(progressionValue);
 			
 		}
 		actualProgression++;
-		Debug.Log("COLOR: " + actualProgression + " / " + totalEnemyQuantity);
+
 
 		if (actualProgression >= totalEnemyQuantity)
 		{
