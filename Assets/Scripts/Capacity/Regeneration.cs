@@ -8,7 +8,7 @@ public class Regeneration : ICapacityItem
 	public Player player;
 	public float efficiency = 10.0f;
 	private string id;
-	public float cost = 500.0f;
+	public float cost = 250.0f;
 
 	public Regeneration(Player player, string name = "Regeneration")
 	{

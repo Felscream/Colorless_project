@@ -13,7 +13,6 @@ public class PlayerInput : MonoBehaviour {
 	private GameObject menuObject;
 	[SerializeField]
 	private SkillMenu menu;
-	[SerializeField]
 	bool isPause = false;
 	private Transform camTransform;
     private Player player;
@@ -57,19 +56,21 @@ public class PlayerInput : MonoBehaviour {
     private void Update()
     {
 
-		if (false)
-		{
-			if (isPause)
-			{
-				menuObject.SetActive(false);
-				isPause = false;
-			}
-			else
-			{
-				menuObject.SetActive(true);
-				isPause = true;
-			}
-		}
+		if (InputManager.GetButtonDown("Pause"))
+		{   
+            if (Time.timeScale == 1.0f)
+            {
+                menuObject.SetActive(true);
+                Time.timeScale = 0.0f;
+                isPause = true;
+            }
+            else
+            {
+                menuObject.SetActive(false);
+                Time.timeScale = 1.0f;
+                isPause = false;
+            }
+        }
 
 
         if (ObjectsInstantiated() && !player.IsDead() && !isPause)
