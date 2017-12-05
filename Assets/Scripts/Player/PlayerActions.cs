@@ -237,7 +237,10 @@ public class PlayerActions : MonoBehaviour {
             else if(interaction is Door)
             {
                 Door door = (Door)interaction;
-                door.Open();
+                if (door.IsInteractive())
+                {
+                    door.Open();
+                }
             }
         }
         else

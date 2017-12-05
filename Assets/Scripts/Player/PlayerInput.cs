@@ -6,7 +6,7 @@ using TeamUtility.IO;
 public class PlayerInput : MonoBehaviour {
 
     private static PlayerInput instance = null;
-
+    private bool pause = false;
     [SerializeField]
     private float mouseSensibility, controllerSensibility;
     private Transform camTransform;
@@ -50,8 +50,21 @@ public class PlayerInput : MonoBehaviour {
     // Update is called once per frame
     private void Update()
     {
-        
-        if (ObjectsInstantiated() && !player.IsDead())
+        if (InputManager.GetButtonDown("Pause"))
+        {
+            if(Time.timeScale == 1.0f)
+            {
+                Time.timeScale = 0.0f;
+                pause = true;
+            }
+            else
+            {
+                pause = false;
+                Time.timeScale = 1.0f;
+            }
+        }
+
+        if (ObjectsInstantiated() && !player.IsDead() && !pause)
         {
             GetPlayerControlInput();
         }
