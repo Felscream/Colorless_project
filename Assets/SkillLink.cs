@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SkillLink : MonoBehaviour {
 
 	[SerializeField]
-	private SkillButton origin, destination;
+	public SkillButton origin, destination;
 
 
 
@@ -14,8 +14,11 @@ public class SkillLink : MonoBehaviour {
 	public void MakeAvailable()
 	{
 		destination.MakeAvailable();
-		GetComponent<Image>().color = Color.green;
-
+		Color linkColor = GetComponent<Image>().color;
+		linkColor.r = 0.01f;
+		linkColor.g = 0.6f;
+		linkColor.b = 0.01f;
+		GetComponent<Image>().color = linkColor;
 	}
 
 }

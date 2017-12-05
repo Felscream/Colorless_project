@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
 {
-	private const float SELECTED_SCALE = 100f;
-	private const float BASE_SCALE = 70f;
+	private const float SELECTED_SCALE = 130f;
+	private const float BASE_SCALE = 100f;
 	private const float SELECTED_COLOR = 1.5f;
 	private const float UNLOCK_COLOR = 2f;
 	private RectTransform recT;
 	[SerializeField]
-	private List<SkillLink> links;
+	private Skills playerSkills;
+	[SerializeField]
+	private string skillName;
+	public SkillLink upLinks;
+	public SkillLink downLinks;
+	public SkillLink leftLinks;
+	public SkillLink rightLinks;
 	private bool unlocked = false;
 	private bool unlockable = false;
 	private bool selected = false;
@@ -26,7 +32,6 @@ public class SkillButton : MonoBehaviour
 		recT = GetComponent<RectTransform>();
 	}
 
-	//temp
 	void Update()
 	{
 	}
@@ -64,6 +69,7 @@ public class SkillButton : MonoBehaviour
 
 	public void Unlock()
 	{
+		Debug.Log("Unlock");
 		if (unlockable && !unlocked)
 		{
 			Color buttonColor = GetComponent<Image>().color;
@@ -71,10 +77,20 @@ public class SkillButton : MonoBehaviour
 			buttonColor.g *= SELECTED_COLOR;
 			buttonColor.b *= SELECTED_COLOR;
 			GetComponent<Image>().color = buttonColor;
-			foreach (SkillLink link in links)
-			{
-				link.MakeAvailable();
-			}
+			
+			if(upLinks)
+				upLinks.MakeAvailable();
+			if (downLinks)
+				downLinks.MakeAvailable();
+			if (leftLinks)
+				leftLinks.MakeAvailable();
+			if (rightLinks)
+				rightLinks.MakeAvailable();
+
+			playerSkills.SetProp(skillName,true);
+
+			unlocked = true;
+
 		}
 	}
 

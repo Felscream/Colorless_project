@@ -14,13 +14,20 @@ public class Door : Interaction {
     }
     public void Open()
     {
-        this.interactive = false;
-		animator.SetBool("open", true);
-		foreach (Door door in connectedDoors)
-		{
-			door.interactive = false;
-			door.animator.SetBool("open", true);
 
+		if (interactive)
+		{
+			interactive = false;
+			animator.SetBool("open", true);
+			foreach (Door door in connectedDoors)
+			{
+				door.interactive = false;
+				door.animator.SetBool("open", true);
+
+			}
 		}
     }
+
+
 }
+

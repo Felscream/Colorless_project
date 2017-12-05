@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class Skills : MonoBehaviour {
@@ -352,5 +354,15 @@ public class Skills : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+
+	public void SetProp(string propertyName, bool propertyValue)
+	{
+		Type type = this.GetType();
+
+		PropertyInfo prop = type.GetProperty(propertyName);
+
+		prop.SetValue(this, propertyValue, null);
 	}
 }

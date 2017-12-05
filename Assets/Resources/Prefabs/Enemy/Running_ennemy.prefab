@@ -2230,7 +2230,7 @@ MonoBehaviour:
   baseHealth: 1
   maxHealth: 1
   currentHealth: 1
-  attackDamage: 20
+  attackDamage: 5
   prefabName: Enemy
   visualSensorHorizontalAngle: 40
   visualSensorVerticalAngle: 65
